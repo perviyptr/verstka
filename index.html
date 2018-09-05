@@ -1801,7 +1801,7 @@ function УдалитьВыбранныйКласс(){
 
 восстановить.addEventListener('click', восстановитьДанные);
 function восстановитьДанные(){
-	холст.innerHTML = localStorage.html;
+	холст.innerHTML = localStorage.html || '';
 	рабочийХолст = холст.querySelector('.holst');
 	if(localStorage.classes != undefined){
 		массивКлассов = JSON.parse(localStorage.classes);//обратное преобразование строки, содержащейся в localStorage в массив классов
@@ -3332,7 +3332,10 @@ function formatXML(xml) { //форматирование html-кода
 показатьКод.addEventListener('click', ПоказатьКодСтраницы);
 function ПоказатьКодСтраницы() {
 код.style.display = 'block';
-const css = Array.from(jss.defaultSheet.rules).map(({cssText}) => cssText).join('\n');
+let css = '';
+if(jss.defaultSheet != undefined){
+css = Array.from(jss.defaultSheet.rules).map(({cssText}) => cssText).join('\n');
+}
 код.textContent =
 `<!DOCTYPE html>
 <html>
