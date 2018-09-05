@@ -1,0 +1,3352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Программа для вёрстки сайтов</title>
+	<link href="color-picker-master/color-picker.min.css" rel="stylesheet"> <!-- подключение библиотеки выборщика цветов -->
+	<link rel="stylesheet" href="selectize/selectize.css"> <!-- подключение библиотеки стилей для выборщика классов -->
+	<link rel="stylesheet" href="selectize/selectize.default.css">
+
+<style type="text/css">
+
+	body{
+		background: rgb(236, 223, 237);
+	}
+
+	#общий{
+		width: 1140px;
+		display: flex;
+		flex-direction:row;
+		justify-content:space-between;
+		align-items: flex-start;
+	}
+	#общийБезМеню{
+		width: 850px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-between;
+		align-items:flex-start;
+		margin-left: 20px;
+		background: rgb(41, 13, 89);
+	}
+	#дляМеню{
+		width: 270px;
+		background: rgb(88, 2, 94);
+	}
+	.менюНазначитьКласс{
+		width: 100%;
+		min-height: 50px;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 10px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+	}
+	#менюСоздатьЭлементСтраницы{
+		width: 100%;
+		min-height: 200px;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+	}
+	#менюСоздатьФорму{
+		width: 100%;
+		min-height: 300px;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+	 }
+	#менюРедактироватьТекст{
+		width: 100%;
+		min-height: 300px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#менюОбтеканиеТекстом{
+		width: 100%;
+		min-height: 50px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+
+	}
+	#менюРедактироватьРазмер{
+		width: 100%;
+		min-height: 200px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#менюРедактироватьГраницу{
+		width: 100%;
+		min-height: 200px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#менюРедактироватьФон{
+		width: 100%;
+		min-height: 50px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#менюРедактироватьТаблицу{
+		width: 100%;
+		min-height: 50px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#менюРедактироватьСписок{
+		width: 100%;
+		min-height: 50px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#дляИзменитьПрозрачность{
+		width: 100%;
+		min-height: 50px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#дляКнопкиУдалитьиСкрыть{
+		width: 100%;
+		min-height: 80px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+		margin-bottom: 20px;
+	}
+	#менюFlexBox{
+		width: 100%;
+		min-height: 250px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+	}
+	#выровнятьБлок{
+		width: 100%;
+		min-height: 200px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+	}
+	#менюКурсор{
+		width: 100%;
+		min-height: 40px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+	}
+	#менюДобавитьГиперссылку{
+		width: 100%;
+		min-height: 50px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-around;
+		align-items:center;
+		border: dotted 0.25px;
+		background-color: rgb(200,200,200);
+	}
+	#холст{
+		min-width: 100%;
+		margin-top: 10px;
+		position: relative;
+	}
+	.holst{
+		width: 800px;
+		min-height: 500px;
+		position: absolute;
+		padding: 0px;
+		cursor: default;
+		background: rgb(255,255,255);
+		border: solid 5px rgb(100, 100, 100);
+	}
+	.дляФорм{
+		width: 100%;
+		font-family: Verdana, sans-serif;
+		font-size: 14px;
+		margin: 5px;
+	}
+	.дляФормПоЦентру{
+		width: 100%;
+		font-family: Verdana, sans-serif;
+		font-size: 14px;
+		margin: 5px;
+		text-align: center;
+	}
+	#инструкция{
+		width: 800px;
+		margin: auto;
+		margin-bottom: 20px;
+		font-family: Verdana, sans-serif;
+		font-size: 16px;
+		color: rgb(0,0,0);
+		background: rgb(236, 223, 237);
+	}
+	.сТекстом{
+		width: 170px;
+		height: 20px;
+		text-align: center;
+		border: solid 1px black;
+	}
+	.дляВыбораКлассов{
+		width: 170px;
+		text-align: center;
+		border: solid 1px black;
+	}
+	.сДлиннымТекстом{
+		width: 250px;
+		height: 20px;
+		text-align: center;
+		border: solid 1px black;
+	}
+	.сЦифрами{
+		width: 50px;
+		height: 20px;
+		text-align: center;
+		border: solid 1px black;
+	}
+	.подписиБезСсылки{
+		width: 100%;
+		text-align: center;
+		font-family: Verdana, sans-serif;
+		font-size: 15px;
+		margin: 5px;
+		color: rgb(0, 0, 0);
+	}
+	.кнопкаСоздать{
+		width: 250px;
+		height: 30px;
+		text-align: center;
+		font-family: Verdana, sans-serif;
+		font-size: 14px;
+		margin: 3px;
+		border: double 3px rgb(255,255,255);
+	}
+	.кнопкаСоздать:hover{
+		color: rgb(168, 7, 152);
+		cursor: pointer;
+	}
+	.кнопкаВыровнятьБлок{
+		width: 220px;
+		height: 50px;
+		text-align: center;
+		font-family: Verdana, sans-serif;
+		font-size: 14px;
+		margin: 5px;
+		color: rgb(0,0,0);
+		border: double 3px rgb(255,255,255);
+	}
+	.кнопкаВыровнятьБлок:hover{
+		color: rgb(168, 7, 152);
+		cursor: pointer;
+	}
+	.кнопкаСоздатьБлок{
+		width: 100%;
+		height: 40px;
+		display: block;
+		text-align: center;
+		font-family: Verdana, sans-serif;
+		font-size: 14px;
+		margin: 5px auto;
+		border: solid 3px rgb(255,255,255);
+	}
+	.кнопкаСоздатьБлок:hover{
+		color: rgb(168, 7, 152);
+		cursor: pointer;
+	}
+	#общийБезМеню .selected{
+		outline: solid 3px rgb(129, 116, 247);
+	}
+	.скрытый{
+		display: none;
+	}
+	.разворачиваемоеМеню{
+	   color: rgb(255,255,255);
+	   font-size: 13px;
+	   font-family: Verdana, sans-serif;
+	}
+	.разворачиваемоеМеню:hover{
+	   color: rgb(200,200,200);;
+	   cursor: pointer;
+   }
+   #инструкцияПоРаботе{
+		color: rgb(255,255,255);
+	   font-size: 16px;
+	   font-family: Verdana, sans-serif;
+	   margin-bottom: 10px;
+   }
+   #инструкцияПоРаботе:hover{
+		color: rgb(206, 245, 240);
+	   cursor: pointer;
+   }
+	.кнопкаПрименить{
+		width: 100px;
+		height: 25px;
+		margin: 5px;
+		border: solid 1px black;
+	}
+	.кнопкаПрименить:hover{
+	   color: rgb(168, 7, 152);
+	   cursor: pointer;
+	}
+	.скрытьЭлементыУправления{
+		display: none;
+	}
+	#заголовок{
+		font-size: 22px;
+		text-align: center;
+		font-family: Verdana, sans-serif;
+		cursor: text;
+		margin:10px auto;
+		letter-spacing: 15px;
+	}
+	.дляКнопок{
+		width: 100%;
+		min-height: 100px;
+		display: flex;
+		flex-direction:row;
+		justify-content: space-between;
+		align-items:flex-start;
+		flex-wrap: wrap;
+		align-content: space-between;
+	}
+	.дляКнопокПоКлассу{
+		width: 100%;
+		min-height: 20px;
+		display: flex;
+		flex-direction:row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.средний{
+	 width: 130px;
+	 height: 35px;
+	 display: block;
+	 margin-top: 5px;
+	 margin-bottom:5px;
+	 border: solid 3px rgb(255,255,255);
+	}
+	.отменить{
+	 width: 130px;
+	 height: 35px;
+	 display: block;
+	 margin-top: 5px;
+	 margin-bottom:5px;
+	 border: solid 1px black;
+	}
+	.средний:hover,.отменить:hover{
+	   color: rgb(168, 7, 152);
+	   cursor: pointer;
+	}
+	#развернутьМеню{
+		color: rgb(195, 9, 237);
+		font-weight: bold;
+	}
+	#развернутьМеню:hover{
+		color: rgb(29, 22, 245);
+		font-weight: bold;
+	}
+	#скрытьМеню{
+		width: 180px;
+		height: 30px;
+		border: solid 3px rgb(255,255,255);
+	}
+	#скрытьМеню:hover{
+		color: rgb(168, 7, 152);
+		cursor: pointer;
+	}
+	#выборЦветаШрифта{
+		border: solid 1px black;
+	}
+	#выборЦветаШрифтаПоКлассу{
+		border: solid 1px black;
+	}
+	#выборЦветаЗаливки{
+		border: solid 1px black;
+	}
+	#выборЦветаЗаливкиПоКлассу{
+		border: solid 1px black;
+	}
+	#цветГраницыПоКлассу{
+		border: solid 1px black;
+	}
+	.big-div{
+		width: 100%;
+		padding: 0px;
+		border: dotted 1px;
+		display: flex;
+		flex-direction: row;
+	}
+	.litle-div{
+		margin: 0px;
+		border: dotted 1px;
+		display: inline-block;
+	}
+	.ul{
+		min-width: 20px;
+		min-height: 20px;
+		border: dotted 1px;
+	}
+	.ol{
+		min-width: 20px;
+		min-height: 20px;
+		border: dotted 1px;
+	}
+	.details{
+		width: 40px;
+		min-height: 20px;
+		border: dotted 1px;
+	}
+	.details-div{
+		width: 40px;
+		min-height: 20px;
+		border: dotted 1px red;
+	}
+	.figure-top{
+		width: 100px;
+		height: 100px;
+		border: dotted 1px red;
+	}
+	.figure-top-div{
+		width: 100%;
+		height: 100px;
+		border: dotted 1px blue;
+	}
+	.figure-bottom{
+		width: 100px;
+		height: 100px;
+		border: dotted 1px red;
+	}
+	.figure-bottom-div{
+		width: 100%;
+		height: 100px;
+		border: dotted 1px blue;
+	}
+	.caption-h{
+		min-width: 40px;
+		height: 30px;
+		text-align: center;
+		margin: 5px auto;
+		border: dotted 1px;
+	}
+	.paragraph-p{
+		min-width: 40px;
+		min-height: 20px;
+		border: dotted 1px;
+	}
+	.image{
+		width: 100px;
+		height: 100px;
+		border: dotted 1px;
+	}
+	.table{
+		width: 100px;
+		height: 40px;
+		border: dotted 1px;
+	}
+	.button{
+		min-width: 40px;
+		min-height: 20px;
+		border: dotted 1px;
+	}
+	.input-text{
+		min-width: 40px;
+		height: 20px;
+		border: dotted 1px;
+	}
+	.textarea{
+		min-width: 40px;
+		min-height: 40px;
+		border: dotted 1px;
+	}
+	.select{
+		min-width: 40px;
+		min-height: 20px;
+		border: dotted 1px;
+	}
+	.checkbox{
+		width: 20px;
+		height: 20px;
+		border: dotted 1px;
+	}
+	.radio{
+		width: 20px;
+		height: 20px;
+		border: dotted 1px;
+	}
+
+	.choices, .selectize-control {
+		width: 100%;
+	}
+	#редактируемыйКласс{
+		width: 200px;
+		height: 25px;
+		display: block;
+		margin: 10px auto;
+		text-align: center;
+		border: dotted 1px;
+		font-size: 15px;
+		font-family: verdana, sans-serif;
+	}
+	.флажок{
+		width: 20px;
+		height: 20px;
+	}
+	.заголовокКhover{
+		color: rgb(125, 6, 125);
+		font-family: verdana, sans-serif, sans-serif;
+		font-size: 15px;
+	}
+	a{
+		cursor: pointer;
+	}
+	#дляЗаголовка{
+		width: 1500px;
+	}
+	.дляСкачать{
+		width: 100%;
+		margin-top: 20px;
+		display: flex;
+		flex-direction:row;
+		justify-content:center;
+		align-items:center;
+		flex-wrap: wrap;
+		align-content: space-between;
+	}
+	.кнопкиДляКода{
+		 width: 110px;
+		 height: 25px;
+		 margin: 5px;
+		 border: solid 1px black;
+	}
+
+	#код{
+		position: absolute;
+		z-index: 100;
+		display: none;
+		}
+	#примерВыполнения{
+		color: rgb(255,255,255);
+		font-family: verdana, sans-serif;
+		font-size: 16px;
+		margin-top: 0px;
+		margin-left: 15px;
+	}
+	#примерВыполнения:hover{
+		color: rgb(206, 245, 240);
+		cursor: pointer;
+	}
+
+
+</style>
+<script src="color-picker-master/color-picker.js"></script> <!-- запуск библиотеки подборщика цветов -->
+<script type="text/javascript" src="jss.min.js"></script> <!-- запуск библиотеки стилей -->
+<script src="jquery-3.3.1.min.js"></script> <!-- библиотека jquery -->
+<script src="selectize/selectize.js"></script><!-- запуск библиотеки для добавления и удаления классов -->
+</head>
+
+<body>
+		<div id="дляЗаголовка">
+		<h1 id="заголовок" onmousedown="return false" onselectstart="return false">Программа для вёрстки сайтов</h1>
+		</div>
+		<div id="общий">
+			<div id = "дляМеню">
+				<button class="кнопкаСоздатьБлок" id="добавитьХолст">Создать холст</button>
+				<button class="кнопкаСоздатьБлок" id="добавитьБлокДляКомпоновки">Создать блок для компоновки (DIV)</button>
+				<div class="менюНазначитьКласс">
+				<p class="подписиБезСсылки">Минимальная высота блоков для компоновки</p>
+				<input type="text" class="сДлиннымТекстом" id="минимВысота" value="100px" placeholder="XXpx">
+				</div>
+				<div class="дляКнопокПоКлассу">
+					<button class="отменить" id="сохранитьНовыйКласс" onmousedown="return false" onselectstart="return false">Сохранить класс
+					</button>
+					<button class="отменить" id="удалитьКласс" onmousedown="return false" onselectstart="return false">Удалить класс</button>
+				</div>
+				<div class="менюНазначитьКласс">
+					<select class="form-control" id="classes-select" placeholder="Выбор и добаление классов" multiple></select>
+					<input type="text" id="редактируемыйКласс" value="" placeholder="Редактируемый класс">
+					<span class="заголовокКhover">Режим редактирования hover</span>
+					<input type="checkbox" class="флажок" id="добавитьhover">
+				</div>
+				<div class="менюНазначитьКласс">
+					<span class="заголовокКhover">Режим редактирования по месту</span>
+					<input type="checkbox" class="флажок" id="включитьРедактированиеПоМесту" checked="checked">
+				</div>
+				<div class="дляКнопок">
+					<button class="отменить" id="вырезать" onmousedown="return false" onselectstart="return false">Вырезать<br>(Ctrl + X)</button>
+					<button class="средний" id="очистить" onmousedown="return false" onselectstart="return false">Удалить всё</button>
+					<button class="отменить" id="копировать" onmousedown="return false" onselectstart="return false">Копировать<br>(Ctrl + C)
+					</button>
+					<button class="средний" id="очиститьСтили" onmousedown="return false" onselectstart="return false">Удалить стили</button>
+					<button class="средний" id="вставить" onmousedown="return false" onselectstart="return false">Вставить</button>
+					<button class="средний" id="восстановить" onmousedown="return false" onselectstart="return false">Восстановить</button>
+					<button class="средний" id="сохранить" onmousedown="return false" onselectstart="return false">Сохранить</button>
+					<button class="отменить" id="отменить" onmousedown="return false" onselectstart="return false">Отменить последнее(Ctrl+Z)
+					</button>
+				</div>
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Создать элемент страницы
+					</summary>
+						<div id ="менюСоздатьЭлементСтраницы">
+								<button class="кнопкаСоздать" id="добавитьВспомогательныйБлокДляКомпоновки">Вспомогательный блок (DIV)</button>
+
+								<p class="подписиБезСсылки">Заголовок</p>
+								<label class="дляФормПоЦентру">
+								<form>
+								<select class="сТекстом" id='добавитьЗаголовок'>
+								<option value=''selected></option>
+								<option value='h1'>Заголовок h1</option>
+								<option value='h2'>Заголовок h2</option>
+								<option value='h3'>Заголовок h3</option>
+								<option value='h4'>Заголовок h4</option>
+								</select>
+								</form>
+								</label>
+
+								<button class="кнопкаСоздать" id="добавитьМаркированныйСписок">Маркированный список</button>
+								<button class="кнопкаСоздать" id="добавитьНумерованныйСписок">Нумированный список</button>
+								<button class="кнопкаСоздать" id="добавитьАбзац" onmousedown="return false" onselectstart="return false">Абзац</button>
+								<button class="кнопкаСоздать" id="добавитьИзображение" onmousedown="return false" onselectstart="return false">Изображение</button>
+								<button class="кнопкаСоздать" id="созданиеТаблицы" onmousedown="return false" onselectstart="return false">Таблица</button>
+								<button class="кнопкаСоздать" id="добавитьРаскрывающеесяМеню" onmousedown="return false" onselectstart="return false">Раскрывающееся меню</button>
+								<button class="кнопкаСоздать" id="ЭлементСнадписьюСверху" onmousedown="return false" onselectstart="return false">Элемент с надписью сверху</button>
+								<button class="кнопкаСоздать" id="ЭлементСнадписьюСнизу" onmousedown="return false" onselectstart="return false">Элемент с надписью снизу</button>
+							</div>
+				</details>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Создать форму</summary>
+						<div id ="менюСоздатьФорму">
+								<button class="кнопкаСоздать" id="добавитьКнопку" onmousedown="return false" onselectstart="return false">Кнопка</button>
+								<button class="кнопкаСоздать" id="добавитьТекстовоеПоле" onmousedown="return false" onselectstart="return false">Текстовое поле</button>
+								<button class="кнопкаСоздать" id="добавитьTextarea" onmousedown="return false" onselectstart="return false">Textarea</button><br>
+								<button class="кнопкаСоздать" id="добавитьSelect" onmousedown="return false" onselectstart="return false">Раскрывающийся список</button>
+								<p class="подписиБезСсылки">Добавить опцию ("Enter")</p>
+								<input type="text" class="сТекстом" id="опцияSelect" value="">
+								<p class="подписиБезСсылки">Отредактировать опцию ("Enter")</p>
+								<input type="text" class="сТекстом" id="редактироватьОпциюSelect" value=""><br>
+								<button class="кнопкаСоздать" id="добавитьChekcbox" onmousedown="return false" onselectstart="return false">Checkbox</button>
+								<button class="кнопкаСоздать" id="добавитьRadio" onmousedown="return false" onselectstart="return false">Переключатель-Radio</button>
+						</div>
+				</details>
+				<br>
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать текст</summary>
+						<div id ="менюРедактироватьТекст">
+							<p class="подписиБезСсылки">Название шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборНазванияШрифта'>
+							<option value='' selected></option>
+							<option value='Arial'>Arial</option>
+							<option value='TimesNewRoman'>Times New Roman</option>
+							<option value='Times'>Times</option>
+							<option value='CourierNew'>Courier New</option>
+							<option value='Courier'>Courier</option>
+							<option value='Verdana'>Verdana</option>
+							<option value='Georgia'>Georgia</option>
+							<option value='TrebuchetMS'>Trebuchet MS</option>
+							<option value='ArialBlack'>Arial Black</option>
+							<option value='Impact'>Impact</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Размер шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сЦифрами" id='выборРазмераШрифта'>
+							<option value="" selected></option>
+							<option value='8px'>8</option>
+							<option value='9px'>9</option>
+							<option value='10px'>10</option>
+							<option value='11px'>11</option>
+							<option value='12px'>12</option>
+							<option value='13px'>13</option>
+							<option value='14px'>14</option>
+							<option value='15px'>15</option>
+							<option value='16px'>16</option>
+							<option value='17px'>17</option>
+							<option value='18px'>18</option>
+							<option value='19px'>19</option>
+							<option value='20px'>20</option>
+							<option value='21px'>21</option>
+							<option value='22px'>22</option>
+							<option value='23px'>23</option>
+							<option value='25px'>25</option>
+							<option value='26px'>26</option>
+							<option value='27px'>27</option>
+							<option value='28px'>28</option>
+							<option value='29px'>29</option>
+							<option value='30px'>30</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Толщина шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборТолщиныШрифта'>
+							<option value="" selected></option>
+							<option value='normal'>Нормальный</option>
+							<option value='bold'>Жирный</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Стиль шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборСтиляШрифта'>
+							<option value = "" selected></option>
+							<option value='normal'>Без наклона</option>
+							<option value='italic'>Курсив</option>
+							<option value='oblique'>Наклонный</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Цвет шрифта</p>
+							<input type="text" id='выборЦветаШрифта'>
+
+
+							<p class="подписиБезСсылки">Выравнивание текста</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выравниваниеТекста'>
+							<option value="" selected></option>
+							<option value='left'>По левому краю</option>
+							<option value='center'>По центру</option>
+							<option value='right'> По правому краю </option>
+							<option value='justify'> По ширине </option>
+							</select>
+							</form>
+							</label>
+						</div>
+				</details>
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать текст по классу
+					</summary>
+						<div id ="менюРедактироватьТекст">
+							<p class="подписиБезСсылки">Название шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборНазванияШрифтаПоКлассу'>
+							<option value="" selected></option>
+							<option value='Arial'>Arial</option>
+							<option value='TimesNewRoman'>Times New Roman</option>
+							<option value='Times'>Times</option>
+							<option value='CourierNew'>Courier New</option>
+							<option value='Courier'>Courier</option>
+							<option value='Verdana'>Verdana</option>
+							<option value='Georgia'>Georgia</option>
+							<option value='TrebuchetMS'>Trebuchet MS</option>
+							<option value='ArialBlack'>Arial Black</option>
+							<option value='Impact'>Impact</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Размер шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сЦифрами" id='выборРазмераШрифтаПоКлассу'>
+							<option value="" selected></option>
+							<option value='8px'>8</option>
+							<option value='9px'>9</option>
+							<option value='10px'>10</option>
+							<option value='11px'>11</option>
+							<option value='12px'>12</option>
+							<option value='13px'>13</option>
+							<option value='14px'>14</option>
+							<option value='15px'>15</option>
+							<option value='16px'>16</option>
+							<option value='17px'>17</option>
+							<option value='18px'>18</option>
+							<option value='19px'>19</option>
+							<option value='20px'>20</option>
+							<option value='21px'>21</option>
+							<option value='22px'>22</option>
+							<option value='23px'>23</option>
+							<option value='25px'>25</option>
+							<option value='26px'>26</option>
+							<option value='27px'>27</option>
+							<option value='28px'>28</option>
+							<option value='29px'>29</option>
+							<option value='30px'>30</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Толщина шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборТолщиныШрифтаПоКлассу'>
+							<option value="" selected></option>
+							<option value='normal'>Нормальный</option>
+							<option value='bold'>Жирный</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Стиль шрифта</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборСтиляШрифтаПоКлассу'>
+							<option value = "" selected></option>
+							<option value=""></option>
+							<option value='normal'>Без наклона</option>
+							<option value='italic'>Курсив</option>
+							<option value='oblique'>Наклонный</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Цвет шрифта</p>
+							<input type="text" id='выборЦветаШрифтаПоКлассу'>
+
+
+							<p class="подписиБезСсылки">Выравнивание текста</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выравниваниеТекстаПоКлассу'>
+							<option value="" selected></option>
+							<option value='left'>По левому краю</option>
+							<option value='center'>По центру</option>
+							<option value='right'> По правому краю </option>
+							<option value='justify'> По ширине </option>
+							</select>
+							</form>
+							</label>
+						</div>
+				</details>
+				<br>
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать размер</summary>
+						<div id ="менюРедактироватьРазмер">
+							<p class="подписиБезСсылки">Значение наружного отступа</p>
+							<input type="text" class="сТекстом" id="значениеНаружногоОтступа" value="" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Тип наружного отступа</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='типНаружногоОтступа'>
+							<option value="" selected></option>
+							<option value='margin'>От всех сторон</option>
+							<option value='margin-top'>От верхнего края</option>
+							<option value='margin-right'>От правого края</option>
+							<option value='margin-left'>От левого края</option>
+							<option value='margin-bottom'>От нижнего края</option>
+							</select>
+							</form>
+							</label>
+							<br>
+
+							<p class="подписиБезСсылки">Значение внутреннего отступа</p>
+							<input type="text" class="сТекстом" id="значениеВнутреннегоОтступа" value="" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Тип внутреннего отступа</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='типВнутреннегоОтступа'>
+							<option value="" selected></option>
+							<option value='padding'>От всех сторон</option>
+							<option value='padding-top'>От верхнего края</option>
+							<option value='padding-right'>От правого края</option>
+							<option value='padding-left'>От левого края</option>
+							<option value='padding-bottom'>От нижнего края</option>
+							</select>
+							</form>
+							</label>
+							<br>
+
+							<p class="подписиБезСсылки">Координата X</p>
+							<input type="text" class="сДлиннымТекстом" id="координатаX" value="" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Координата Y</p>
+							<input type="text" class="сДлиннымТекстом" id="координатаY" value="" placeholder="XXpx или XX%">
+							<br>
+
+							<p class="подписиБезСсылки">Ширина элемента<br></p>
+							<input type="text" class="сДлиннымТекстом" id="ширина" value="" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Высота элемента</p>
+							<input type="text" class="сДлиннымТекстом" id="высота" value="" placeholder="XXpx">
+						</div>
+				</details>
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать размер по классу</summary>
+						<div id ="менюРедактироватьРазмер">
+							<p class="подписиБезСсылки">Значение наружного отступа</p>
+							<input type="text" class="сТекстом" id="значениеНаружногоОтступаПоКлассу" value="" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Тип наружного отступа</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='типНаружногоОтступаПоКлассу'>
+							<option value="" selected></option>
+							<option value='margin'>От всех сторон</option>
+							<option value='margin-top'>От верхнего края</option>
+							<option value='margin-right'>От правого края</option>
+							<option value='margin-left'>От левого края</option>
+							<option value='margin-bottom'>От нижнего края</option>
+							</select>
+							</form>
+							</label>
+							<br>
+
+							<p class="подписиБезСсылки">Значение внутреннего отступа</p>
+							<input type="text" class="сТекстом" id="значениеВнутреннегоОтступаПоКлассу" value="" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Тип внутреннего отступа</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='типВнутреннегоОтступаПоКлассу'>
+							<option value="" selected></option>
+							<option value='padding'>От всех сторон</option>
+							<option value='padding-top'>От верхнего края</option>
+							<option value='padding-right'>От правого края</option>
+							<option value='padding-left'>От левого края</option>
+							<option value='padding-bottom'>От нижнего края</option>
+							</select>
+							</form>
+							</label>
+							<br>
+
+							<p class="подписиБезСсылки">Ширина элемента<br>
+							<input type="text" class="сДлиннымТекстом" id="ширинаПоКлассу" placeholder="XXpx или XX%">
+							<p class="подписиБезСсылки">Высота элемента</p>
+							<input type="text" class="сДлиннымТекстом" id="высотаПоКлассу" value="" placeholder="XXpx">
+						</div>
+				</details>
+				<br>
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать границу
+					</summary>
+						<div id ="менюРедактироватьГраницу">
+							<p class="подписиБезСсылки">Тип границы</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='типГраницы'>
+							<option value = "" selected></option>
+							<option value='solid'>solid</option>
+							<option value ='none'>none</option>
+							<option value='hidden'>hidden</option>
+							<option value='dashed'>dashed</option>
+							<option value='dotted'>dotted</option>
+							<option value='double'>double</option>
+							<option value='groove'>groove</option>
+							<option value='ridge'>ridge</option>
+							<option value='inset'>inset</option>
+							<option value='outset'>outset</option>
+							<option value='inherit'>inherit</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Толщина</p>
+							<input type="text" class="сТекстом" id="толщинаГраницы" value="" placeholder="XXpx">
+
+							<p class="подписиБезСсылки">Цвет границы</p>
+							<input type="text" id='цветГраницы'>
+
+							<p class="подписиБезСсылки">Радиус закругления</p>
+							<input type="text" class="сТекстом" id="радиусЗакругления" value="" placeholder="XXpx">
+
+						</div>
+				</details>
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать границу по классу
+					</summary>
+						<div id ="менюРедактироватьГраницу">
+							<p class="подписиБезСсылки">Тип границы</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='типГраницыПоКлассу'>
+							<option value="" selected></option>
+							<option value='solid'>solid</option>
+							<option value='none'>none</option>
+							<option value='hidden'>hidden</option>
+							<option value='dashed'>dashed</option>
+							<option value='dotted'>dotted</option>
+							<option value='double'>double</option>
+							<option value='groove'>groove</option>
+							<option value='ridge'>ridge</option>
+							<option value='inset'>inset</option>
+							<option value='outset'>outset</option>
+							<option value='inherit'>inherit</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Толщина</p>
+							<input type="text" class="сТекстом" id="толщинаГраницыПоКлассу" value="" placeholder="XXpx">
+
+							<p class="подписиБезСсылки">Цвет границы</p>
+							<input type="text" id='цветГраницыПоКлассу'>
+
+							<p class="подписиБезСсылки">Радиус закругления</p>
+							<input type="text" class="сТекстом" id="радиусЗакругленияПоКлассу" value="" placeholder="XXpx">
+
+						</div>
+				</details>
+				<br>
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать фон</summary>
+						<div id ="менюРедактироватьФон">
+							<p class="подписиБезСсылки">Цвет заливки</p>
+							<input type="text" id='выборЦветаЗаливки'>
+							<button class="кнопкаСоздать" id="добавитьИзображениеДляФона">Фон в виде картинки</button>
+							<p class="подписиБезСсылки">Размер фонового изображения</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select  class="сТекстом" id='выборРазмераФоновогоИзображения'>
+							<option value="" selected></option>
+							<option value='auto'>auto</option>
+							<option value='cover'>cover</option>
+							<option value='contain'> contain </option>
+							</select>
+							</form>
+							</label>
+
+						</div>
+				</details>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать фон по классу
+					</summary>
+						<div id ="менюРедактироватьФон">
+							</form>
+							<p class="подписиБезСсылки">Цвет заливки</p>
+							<input type="text" id='выборЦветаЗаливкиПоКлассу'>
+						</div>
+				</details>
+				<br>
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать таблицу
+					</summary>
+						<div id ="менюРедактироватьТаблицу">
+							<p class="подписиБезСсылки">Промежуток между рамками ячеек</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборПромежуткаМеждуЯчейками'>
+							<option value="" selected></option>
+							<option value='separate'>Рамки ячеек располагаются раздельно</option>
+							<option value='collapse'>Промежутки между рамками убираются</option>
+							</select>
+							</form>
+							</label>
+						</div>
+				</details>
+				<br>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать список</summary>
+						<div id ="менюРедактироватьСписок">
+							<p class="подписиБезСсылки">Выберите тип маркера списка</p>
+								<form>
+								<select class="сТекстом" id='редактированиеМаркераСписка'>
+								<option value="" selected></option>
+								<option value='none'>Без маркера</option>
+								<option value='disc'>Закрашенный кружок</option>
+								<option value='circle'>Незакрашенный кружок</option>
+								<option value='square'>Закрашенный квадрат</option>
+								<option value='decimal'>Арабские цифры</option>
+								<option value='lower-roman'>Строчные римские цифры</option>
+								<option value='upper-roman'>Заглавные римские цифры</option>
+								<option value='lower-alpha'>Строчные латинские буквы</option>
+								<option value='upper-alpha'>Заглавные латинские буквы</option>
+								</select>
+								</form>
+								</label>
+
+								<p class="подписиБезСсылки">Положение маркера относительно<br>
+								блока строк текста</p>
+								<form>
+								<select class="сТекстом" id='редактированиеПоложениеМаркераСписка'>
+								<option value="" selected></option>
+								<option value='outside'>За пределами текстового поля</option>
+								<option value='inside'>В пределах текстового поля</option>
+								</select>
+								</form>
+								</label>
+						</div>
+				</details>
+
+
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Редактировать список по классу</summary>
+						<div id ="менюРедактироватьСписок">
+							<p class="подписиБезСсылки">Выберите тип маркера списка</p>
+								<form>
+								<select class="сТекстом" id='редактированиеМаркераСпискаПоКлассу'>
+								<option value="" selected></option>
+								<option value='none'>Без маркера</option>
+								<option value='disc'>Закрашенный кружок</option>
+								<option value='circle'>Незакрашенный кружок</option>
+								<option value='square'>Закрашенный квадрат</option>
+								<option value='decimal'>Арабские цифры</option>
+								<option value='lower-roman'>Строчные римские цифры</option>
+								<option value='upper-roman'>Заглавные римские цифры</option>
+								<option value='lower-alpha'>Строчные латинские буквы</option>
+								<option value='upper-alpha'>Заглавные латинские буквы</option>
+								</select>
+								</form>
+								</label>
+
+						</div>
+				</details>
+				<br>
+
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Изменить прозрачность
+					</summary>
+						<div id ="дляИзменитьПрозрачность">
+							<p class="подписиБезСсылки">Уровень прозрачности элемента</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сЦифрами" id='изменитьПрозрачность'>
+							<option value="" selected></option>
+							<option value='1'>1</option>
+							<option value='0.9'>0,9</option>
+							<option value='0.8'>0,8</option>
+							<option value='0.7'>0,7</option>
+							<option value='0.6'>0,6</option>
+							<option value='0.5'>0,5</option>
+							<option value='0.4'>0,4</option>
+							<option value='0.3'>0,3</option>
+							<option value='0.2'>0,2</option>
+							<option value='0.1'>0,1</option>
+							<option value='0'>0</option>
+							</select>
+							</form>
+							</label>
+						</div>
+				</details>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Скрыть элемент</summary>
+						<div id ="дляКнопкиУдалитьиСкрыть">
+							<button class="кнопкаСоздать" id="скрыть">Скрыть выбранный элемент</button>
+							<button class="кнопкаСоздать" id="показать">Показать все элементы</button>
+						</div>
+				</details>
+				<br>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Выровнять с FlexBox</summary>
+						<div id ="менюFlexBox">
+							<p class="подписиБезСсылки">Выберите направление<br>
+							главной оси</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборНаправленияГлавнойОси'>
+							<option value="" selected></option>
+							<option value='row'> Слева направо </option>
+							<option value='column'> Сверху вниз </option>
+							<option value='row-reverse'> Справа налево </option>
+							<option value='column-reverse'> Снизу вверх </option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Выберите тип выравнивания<br>вдоль главной оси</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборТипаВыравниванияВдольГлавнойОси'>
+							<option value ="" selected></option>
+							<option value='flex-start'> Блоки прижаты к началу главной оси </option>
+							<option value='flex-end'> Блоки прижаты к концу главной оси </option>
+							<option value='center'> Блоки располагаются в центре главной оси </option>
+							<option value='space-between'> Первый блок располагается в начале главной оси, последний блок – в конце, все остальные блоки равномерно распределены в оставшемся пространстве </option>
+							<option value='space-around'>Все блоки равномерно распределены вдоль главной оси, разделяя все свободное пространство поровну</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Выберите тип выравнивания<br>вдоль поперечной оси</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборТипаВыравниванияВдольПоперечнойОси'>
+							<option value = "" selected></option>
+							<option value='flex-start'> Блоки прижаты к началу поперечной оси </option>
+							<option value='flex-end'> Блоки прижаты к концу поперечной оси </option>
+							<option value='center'> Блоки располагаются в центре поперечной оси </option>
+							<option value='baseline'> Блоки выровнены по их baseline </option>
+							<option value='stretch'> Блоки растянуты, занимая все доступное место по поперечной оси</option>
+							</select>
+							</form>
+							</label>
+							<br>
+
+							<p class="подписиБезСсылки">Выбрать многострочный режим</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборМногострочногоРежима'>
+							<option value = "" selected></option>
+							<option value='nowrap'>Однострочный режим</option>
+							<option value='wrap'>Многострочный режим слева направо</option>
+							<option value='wrap-reverse'>Многострочный режим справа налево</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Тип выравнивания рядов блоков</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборТипаВыравниванияРядовБлоков'>
+							<option value = "" selected></option>
+							<option value='stretch'>Ряды блоков растянуты, дабы занять все имеющееся пространство</option>
+							<option value='flex-start'>Ряды блоков прижаты к началу flex-контейнера</option>
+							<option value='flex-end'>Ряды блоков прижаты к концу flex-контейнера</option>
+							<option value='center'>Ряды блоков находятся в центре flex-контейнера</option>
+							<option value='space-between'>Первый ряд блоков располагается в начале flex-контейнера, последний ряд блоков блок – в конце, все остальные ряды равномерно распределены в оставшемся пространстве
+							</option>
+							<option value='space-around'>Ряды блоков равномерно распределены в от начала до конца flex-контейнера, разделяя все свободное пространство поровну
+							</option>
+							</select>
+							</form>
+							</label>
+							</div>
+					</details>
+
+
+
+					<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Выровнять с FlexBox по классу</summary>
+						<div id ="менюFlexBox">
+							<p class="подписиБезСсылки">Выберите направление<br>
+							главной оси</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='выборНаправленияГлавнойОсиПоклассу'>
+							<option value="" selected></option>
+							<option value='row'> Слева направо </option>
+							<option value='column'> Сверху вниз </option>
+							<option value='row-reverse'> Справа налево </option>
+							<option value='column-reverse'> Снизу вверх </option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Выберите тип выравнивания<br>вдоль главной оси</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборТипаВыравниванияВдольГлавнойОсиПоклассу'>
+							<option value ="" selected></option>
+							<option value='flex-start'> Блоки прижаты к началу главной оси </option>
+							<option value='flex-end'> Блоки прижаты к концу главной оси </option>
+							<option value='center'> Блоки располагаются в центре главной оси </option>
+							<option value='space-between'> Первый блок располагается в начале главной оси, последний блок – в конце, все остальные блоки равномерно распределены в оставшемся пространстве </option>
+							<option value='space-around'>Все блоки равномерно распределены вдоль главной оси, разделяя все свободное пространство поровну</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Выберите тип выравнивания<br>вдоль поперечной оси</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборТипаВыравниванияВдольПоперечнойОсиПоклассу'>
+							<option value = "" selected></option>
+							<option value='flex-start'> Блоки прижаты к началу поперечной оси </option>
+							<option value='flex-end'> Блоки прижаты к концу поперечной оси </option>
+							<option value='center'> Блоки располагаются в центре поперечной оси </option>
+							<option value='baseline'> Блоки выровнены по их baseline </option>
+							<option value='stretch'> Блоки растянуты, занимая все доступное место по поперечной оси</option>
+							</select>
+							</form>
+							</label>
+							<br>
+
+							<p class="подписиБезСсылки">Выбрать многострочный режим</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборМногострочногоРежимаПоклассу'>
+							<option value = "" selected></option>
+							<option value='nowrap'>Однострочный режим</option>
+							<option value='wrap'>Многострочный режим слева направо</option>
+							<option value='wrap-reverse'>Многострочный режим справа налево</option>
+							</select>
+							</form>
+							</label>
+
+							<p class="подписиБезСсылки">Тип выравнивания рядов блоков</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сДлиннымТекстом" id='выборТипаВыравниванияРядовБлоковПоклассу'>
+							<option value = "" selected></option>
+							<option value='stretch'>Ряды блоков растянуты, дабы занять все имеющееся пространство</option>
+							<option value='flex-start'>Ряды блоков прижаты к началу flex-контейнера</option>
+							<option value='flex-end'>Ряды блоков прижаты к концу flex-контейнера</option>
+							<option value='center'>Ряды блоков находятся в центре flex-контейнера</option>
+							<option value='space-between'>Первый ряд блоков располагается в начале flex-контейнера, последний ряд блоков блок – в конце, все остальные ряды равномерно распределены в оставшемся пространстве
+							</option>
+							<option value='space-around'>Ряды блоков равномерно распределены в от начала до конца flex-контейнера, разделяя все свободное пространство поровну
+							</option>
+							</select>
+							</form>
+							</label>
+							</div>
+					</details>
+
+
+
+					<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Выровнять выбранный блок</summary>
+						<div id ="выровнятьБлок">
+							<button class="кнопкаВыровнятьБлок" id="выравниваниеОтдельноВзятогоБлокаПоЦентруСверху" onmousedown="return false" onselectstart="return false">Выровнять выбранный блок по центру сверху</button>
+							<button class="кнопкаВыровнятьБлок" id="выравниваниеОтдельноВзятогоБлокаПоЛевомуКраю" onmousedown="return false" onselectstart="return false">Выровнять выбранный блок по центру слева</button>
+							<button class="кнопкаВыровнятьБлок" id="выравниваниеОтдельноВзятогоБлокаПоПравомуКраю" onmousedown="return false" onselectstart="return false">Выровнять выбранный блок по центру справа</button>
+							<button class="кнопкаВыровнятьБлок" id="выравниваниеОтдельноВзятогоБлокаПоЦентруСнизу" onmousedown="return false" onselectstart="return false">Выровнять выбранный блок по центру снизу</button>
+							<button class="кнопкаВыровнятьБлок" id="выравниваниеОтдельноВзятогоБлокаВЦентре" onmousedown="return false" onselectstart="return false">Выровнять выбранный блок по центру(по X и Y)</button>
+						</div>
+					</details>
+					<br>
+
+					<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Выбрать тип курсора</summary>
+
+						<div id ="менюКурсор">
+								<form>
+								<select class="сТекстом" id='выборФормыКурсора'>
+								<option value = "" selected></option>
+								<option value='auto'>Курсор по умолчанию</option>
+								<option value='default'>В виде наклонной стрелки</option>
+								<option value='crosshair'>В виде крестика</option>
+								<option value='help'>Для справочной информации</option>
+								<option value='move'>Крестик (для пепемещаемых элементов)</option>
+								<option value='pointer'>В виде руки (для гиперссылок)</option>
+								<option value='text'>Для текстовых элементов</option>
+								<option value='wait'>В виде песочных часов(режим зависания)</option>
+								</select>
+								</form>
+								</label>
+						</div>
+				</details>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Выбрать тип курсора по классу</summary>
+
+						<div id ="менюКурсор">
+								<form>
+								<select class="сТекстом" id='выборФормыКурсораПоКлассу'>
+								<option value = "" selected></option>
+								<option value='auto'>Курсор по умолчанию</option>
+								<option value='default'>В виде наклонной стрелки</option>
+								<option value='crosshair'>В виде крестика</option>
+								<option value='help'>Для справочной информации</option>
+								<option value='move'>Крестик (для пепемещаемых элементов)</option>
+								<option value='pointer'>В виде руки (для гиперссылок)</option>
+								<option value='text'>Для текстовых элементов</option>
+								<option value='wait'>В виде песочных часов(режим зависания)</option>
+								</select>
+								</form>
+								</label>
+						</div>
+				</details>
+
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Обтекание текстом</summary>
+						<div id ="менюОбтеканиеТекстом">
+							<p class="подписиБезСсылки">Выбрать тип обтекания текстом</p>
+							<label class="дляФормПоЦентру">
+							<form >
+							<select class="сТекстом" id='обтеканиеТекстом'>
+							<option value = "" selected></option>
+							<option value='none'>Без обтекания</option>
+							<option value='left'>С правой стороны</option>
+							<option value='right'>С левой стороны</option>
+							</select>
+							</form>
+							</label>
+						</div>
+				</details>
+				<br>
+				<details>
+					<summary class="разворачиваемоеМеню" onmousedown="return false" onselectstart="return false">Добавить (удалить) гиперссылку</summary>
+						<div id ="менюДобавитьГиперссылку">
+							<br>
+							<input type="text" class="сДлиннымТекстом" id="гиперссылка" value="" placeholder="Введите адрес гиперссылки">
+							<button class="средний" id="удалитьГиперссылку" onmousedown="return false" onselectstart="return false">Удалить ссылку
+							</button>
+						</div>
+				</details>
+				<div class="дляСкачать">
+					<button class="кнопкиДляКода" id="показатьКод" onmousedown="return false" onselectstart="return false">Показать код</button>
+					<button class="кнопкиДляКода" id="спрятатьКод" onmousedown="return false" onselectstart="return false">Спрятать код</button>
+					<button class="кнопкиДляКода" id="скачать" onmousedown="return false" onselectstart="return false">Скачать код</button>
+				</div>
+				<textarea id="код" rows="100" cols="200" disabled="disabled"></textarea>
+			</div>
+
+			<div id="общийБезМеню">
+				<div id="дляИнструкции" onmousedown="return false" onselectstart="return false"></div>
+			<details>
+					<summary id="инструкцияПоРаботе" onmousedown="return false" onselectstart="return false">Инструкция по работе с программой</summary>
+					<ul id="инструкция">
+						<li>Перед началом работы создайте рабочую область командой "Создать холст" и укажите размеры области в меню "Редактировать размер";</li>
+						<li>Затем создайте блок(один или несколько) для компоновки элементов (DIV),щёлкнув по кнопке "Создать блок для компоновки";
+						</li>
+						<li>Можно изменить минимальную высоту блоков перед их созданием. (По умолчанию 100px);</li>
+						<li>Выделите нужный блок, щёлкнув по нему и вставляйте в него нужные элементы<br>
+						Лучше начать со вставки вспомогательных блоков для компоновки с последующим их позиционированием;</li>
+						<li>Работать в редакторе надо с включенным режимом редактированя по месту. Для отключения режима снимите флажок.
+						Это необходимо при проверке работы гиперссылок.</li>
+						<li>После создания списка и ввода текста можно добавлять новые пункты клавишей "Enter".
+						Перед созданием нового пункта текст должен быть введён.Для завершения создания списка
+						щёлкните в свободном месте.<br>Списки можно редактировать, выделив нужный пункт и установив в нужном месте курсор;</li>
+						<li>Устанавливать нужные параметры выделенного элемента можно через меню "Редактирование".
+						<li>Удаление выделенного элемента производится клавишами "Shift + Delete";</li>
+						<li>Сделав щелчок по пункту "Выбор и добавление классов" можно выбрать класс для редактирования или добавить новый,
+						записав его название. Для сохранения добавленного класса в списке нажмите "Сохранить класс".<br>
+						 Щелчком по крестику удаляется класс у элемента. Для удаления добавленного класса из списка выберите "Удалить класс". Класс исчезнет из списка после сохранения и перезагрузки страницы ("клавиша F5").<br>
+						Внизу отображается активный класс для редактирования. Все элементы, принадлежащие этому классу меняют свои свойства согласно настройкам, заданным через редактирование по классам;</li>
+						<li>По умолчанию имеются следующие классы:
+							<ol id="переченьКлассов">
+								<li>big-div — блок для компоновки (использутся для основной разметки);</li>
+								<li>litle-div — вспомогательный блок для компоновки (используется для разметки внутри блока для компоновки);</li>
+								<li>ul — маркированный список;</li>
+								<li>ol — нумерованный список;</li>
+								<li>details — разворащивающийся элемент;</li>
+								<li>details-div — блок с содержимым разворащивающегося элемента;</li>
+								<li>details-text — блок с текстом разворащивающегося элемента;</li>
+								<li>figure-top — элемент с надписью вверху;</li>
+								<li>figure-top-div — блок с содежимым элемента с надписью вверху;</li>
+								<li>figure-top-text — блок с текстом элемента с надписью вверху;</li>
+								<li>figure-bottom — элемент с надписью внизу;</li>
+								<li>figure-bottom-div — блок с содежимым элемента с надписью внизу;</li>
+								<li>figure-bottom-text — блок с текстом элемента с надписью внизу;</li>
+								<li>caption-h — заголовок;</li>
+								<li>paragraph-p — абзац;</li>
+								<li>image — изображение;</li>
+								<li>table — таблица;</li>
+								<li>button — кнопка;</li>
+								<li>input-text — текстовое окно;</li>
+								<li>textarea — текстовое поле для многострочного текста;</li>
+								<li>select — окно выбора;</li>
+								<li>checkbox — переключатель с флажком;</li>
+								<li>radio — переключатель с точкой.</li>
+							</ol>
+						</li>
+						<li>Для удаления всех элементов воспользуйтесь кнопкой "Удалить всё";</li>
+						<li>Для удаления всех стилей элементов служит кнопка "Удалить стили";</li>
+						<li>Для восстановления удалённого щёлкните по кнопке "Восстановить";</li>
+						<li>Для сохранения страницы щёлкните по кнопке "Сохранить";</li>
+						<li>Для обновления страницы нажмите клавишу "F5". Рекомендуется это делать после каждого сохранения. При обновлении страницы сохранённые данные не пропадают;</li>
+						<li>Отмена последнего действия производится щелчком по кнопке "Отменить последнее действие";</li>
+						<li>Позиционировать элементы можно указав их координаты (левого верхнего угла) в меню
+						"Редактирование" или воспользовавшись меню "Выровнять с помощью FlexBox".
+						Для этого предварительно выделить родительский элемент(контейнер внутри которого располагаются элементы);</li>
+						<li>Через меню "Выровнять выбранный блок" можно позиционировать одиночный элемент внутри контейнера.<br>
+						Не пользуйтесь этим при присутствии внутри контейнера более одного элемента</li>
+						<li>Есть возможность вставить вспомогательный блок для компоновки в любое место по клику мыши с нажатой клавишей "Alt".
+						Но этим следует пользоваться только в крайнем случае в завершение работы над страницей, т.к. вставленные блоки будут иметь позицию "absolute".</li>
+						<li>При использовании свойства "Обтекание текстом" (float) сначала вставляется изображение и назначается ему свойство "float", а затем текст.</li>
+						<li>Навигации по экрану помогут сочетания клавиш Ctrl + стрелка влево (возврат к начальному положению) и
+						Ctrl + стрелка вправо (возврат к рабочему экрану).</li>
+						<li>При включенном режиме редактирования "hover" можно выполнить любые доступные эффекты при наведении мыши на элемент.
+						Удалить эффекты можно, присвоив новый класс элементу и удалив старый.</li>
+						<li>Для вырезания и копирования выделите нужный элемент. Для вставки выделите блок, в который хотите вставить элемент.</li>
+						<li>Для получения готового результата щёлкните кнопку "Скачать код" и запустите его.</li><br>
+						<p>Электронная почта для контактов: <a href="mailto:perviyptr@gmail.com">perviyptr@gmail.com</a></p><br>
+					</ul>
+
+				</details>
+				<a href="primer.html"><p id="примерВыполнения">Посмотреть пример выполнения работы с использованием программы</p></a>
+				<button id="скрытьМеню" onmousedown="return false" onselectstart="return false">Скрыть (показать) меню</button>
+				<div id="холст">
+			</div>
+			</div>
+		</div>
+
+
+
+
+<script type="text/javascript">
+const добавитьМаркированныйСписок = document.getElementById('добавитьМаркированныйСписок');
+const добавитьНумерованныйСписок = document.getElementById('добавитьНумерованныйСписок');
+const положениеМаркераСписка = document.getElementById('положениеМаркераСписка');
+
+const редактированиеМаркераСписка = document.getElementById('редактированиеМаркераСписка');
+const редактированиеПоложениеМаркераСписка = document.getElementById('редактированиеПоложениеМаркераСписка');
+
+const редактированиеМаркераСпискаПоКлассу = document.getElementById('редактированиеМаркераСпискаПоКлассу');
+
+const холст = document.getElementById('холст');
+const общийБезМеню = document.getElementById('общийБезМеню');
+const добавитьАбзац = document.getElementById('добавитьАбзац');
+const скрыть = document.getElementById('скрыть');
+const показать = document.getElementById('показать');
+const выборРазмераШрифта = document.getElementById('выборРазмераШрифта');
+const координатаY = document.getElementById('координатаY');
+const выборFLEX = document.getElementById('выборFLEX');
+const созданиеТаблицы = document.getElementById('созданиеТаблицы');
+
+const типГраницы = document.getElementById('типГраницы');
+const толщинаГраницы = document.getElementById('толщинаГраницы');
+const цветГраницы = document.getElementById('цветГраницы');
+const радиусЗакругления = document.getElementById('радиусЗакругления');
+
+const выборЭлементаДляГраницыПоКлассу = document.getElementById('выборЭлементаДляГраницыПоКлассу');
+const типГраницыПоКлассу = document.getElementById('типГраницыПоКлассу');
+const толщинаГраницыПоКлассу = document.getElementById('толщинаГраницыПоКлассу');
+const цветГраницыПоКлассу = document.getElementById('цветГраницыПоКлассу');
+const радиусЗакругленияПоКлассу = document.getElementById('радиусЗакругленияПоКлассу');
+
+const выборЦветаЗаливки = document.getElementById('выборЦветаЗаливки');
+const выборЦветаЗаливкиПоКлассу = document.getElementById('выборЦветаЗаливкиПоКлассу');
+const выборЭлементаДляФонаПоКлассу = document.getElementById('выборЭлементаДляФонаПоКлассу');
+const добавитьИзображениеДляФона = document.getElementById('добавитьИзображениеДляФона');
+const выборПромежуткаМеждуЯчейками = document.getElementById('выборПромежуткаМеждуЯчейками');
+const добавитьКнопку = document.getElementById('добавитьКнопку');
+const добавитьSelect = document.getElementById('добавитьSelect');
+const опцияSelect = document.getElementById('опцияSelect');
+const редактироватьОпциюSelect = document.getElementById('редактироватьОпциюSelect');
+const добавитьChekcbox = document.getElementById('добавитьChekcbox');
+const добавитьRadio = document.getElementById('добавитьRadio');
+const изменитьПрозрачность = document.getElementById('изменитьПрозрачность');
+
+const выборНаправленияГлавнойОси = document.getElementById('выборНаправленияГлавнойОси');
+const выборТипаВыравниванияВдольГлавнойОси = document.getElementById('выборТипаВыравниванияВдольГлавнойОси');
+const выборТипаВыравниванияВдольПоперечнойОси = document.getElementById('выборТипаВыравниванияВдольПоперечнойОси');
+const выборМногострочногоРежима = document.getElementById('выборМногострочногоРежима');
+const выборТипаВыравниванияРядовБлоков = document.getElementById('выборТипаВыравниванияРядовБлоков');
+
+const выборНаправленияГлавнойОсиПоклассу = document.getElementById('выборНаправленияГлавнойОсиПоклассу');
+const выборТипаВыравниванияВдольГлавнойОсиПоклассу = document.getElementById('выборТипаВыравниванияВдольГлавнойОсиПоклассу');
+const выборТипаВыравниванияВдольПоперечнойОсиПоклассу = document.getElementById('выборТипаВыравниванияВдольПоперечнойОсиПоклассу');
+const выборМногострочногоРежимаПоклассу = document.getElementById('выборМногострочногоРежимаПоклассу');
+const выборТипаВыравниванияРядовБлоковПоклассу = document.getElementById('выборТипаВыравниванияРядовБлоковПоклассу');
+
+const выравниваниеОтдельноВзятогоБлокаВЦентре = document.getElementById('выравниваниеОтдельноВзятогоБлокаВЦентре');
+const выравниваниеОтдельноВзятогоБлокаПоЦентруСверху = document.getElementById('выравниваниеОтдельноВзятогоБлокаПоЦентруСверху');
+const выравниваниеОтдельноВзятогоБлокаПоЦентруСнизу = document.getElementById('выравниваниеОтдельноВзятогоБлокаПоЦентруСнизу');
+const выравниваниеОтдельноВзятогоБлокаПоЛевомуКраю = document.getElementById('выравниваниеОтдельноВзятогоБлокаПоЛевомуКраю');
+const выравниваниеОтдельноВзятогоБлокаПоПравомуКраю = document.getElementById('выравниваниеОтдельноВзятогоБлокаПоПравомуКраю');
+const выравниваниеТекста = document.getElementById('выравниваниеТекста');
+const обтеканиеТекстом = document.getElementById('обтеканиеТекстом');
+const скрытьМеню = document.getElementById('скрытьМеню');
+const дляМеню = document.getElementById('дляМеню');
+const дляИнструкции = document.getElementById('дляИнструкции');
+const заголовок = document.getElementById('заголовок');
+const добавитьЗаголовок = document.getElementById('добавитьЗаголовок');
+const сохранить = document.getElementById('сохранить');
+const восстановить = document.getElementById('восстановить');
+const очистить = document.getElementById('очистить');
+const добавитьВспомогательныйБлокДляКомпоновки = document.getElementById('добавитьВспомогательныйБлокДляКомпоновки');
+const отменить = document.getElementById('отменить');
+const добавитьТекстовоеПоле = document.getElementById('добавитьТекстовоеПоле');
+const добавитьLabel = document.getElementById('добавитьLabel');
+
+const выборЭлементаДляШрифтаПоКлассу = document.getElementById('выборЭлементаДляШрифтаПоКлассу');
+const выборНазванияШрифтаПоКлассу = document.getElementById('выборНазванияШрифтаПоКлассу');
+const выборТолщиныШрифтаПоКлассу = document.getElementById('выборТолщиныШрифтаПоКлассу');
+const выборСтиляШрифтаПоКлассу = document.getElementById('выборСтиляШрифтаПоКлассу');
+
+const типНаружногоОтступа = document.getElementById('типНаружногоОтступа');
+const типВнутреннегоОтступа = document.getElementById('типВнутреннегоОтступа');
+const значениеНаружногоОтступа = document.getElementById('значениеНаружногоОтступа');
+const значениеВнутреннегоОтступа = document.getElementById('значениеВнутреннегоОтступа');
+const ширина = document.getElementById('ширина');
+const высота = document.getElementById('высота');
+
+const выборЭлементаДляРазмеровПоКлассу = document.getElementById('выборЭлементаДляРазмеровПоКлассу');
+const типНаружногоОтступаПоКлассу = document.getElementById('типНаружногоОтступаПоКлассу');
+const типВнутреннегоОтступаПоКлассу = document.getElementById('типВнутреннегоОтступаПоКлассу');
+const значениеНаружногоОтступаПоКлассу = document.getElementById('значениеНаружногоОтступаПоКлассу');
+const значениеВнутреннегоОтступаПоКлассу = document.getElementById('значениеВнутреннегоОтступаПоКлассу');
+const ширинаПоКлассу = document.getElementById('ширинаПоКлассу');
+const высотаПоКлассу = document.getElementById('высотаПоКлассу');
+
+const выборФормыКурсора = document.getElementById('выборФормыКурсора');
+const выборФормыКурсораПоКлассу = document.getElementById('выборФормыКурсораПоКлассу');
+const добавитьРаскрывающеесяМеню = document.getElementById('добавитьРаскрывающеесяМеню');
+const ЭлементСнадписьюСверху = document.getElementById('ЭлементСнадписьюСверху');
+const ЭлементСнадписьюСнизу = document.getElementById('ЭлементСнадписьюСнизу');
+
+const гиперссылка = document.getElementById('гиперссылка');
+const минимВысота = document.getElementById('минимВысота');
+
+const вырезать = document.getElementById('вырезать');
+const копировать = document.getElementById('копировать');
+const вставить = document.getElementById('вставить');
+
+const копироватьСвойства = document.getElementById('копироватьСвойства');
+const назначитьСвойства = document.getElementById('назначитьСвойства');
+
+const скачать = document.getElementById('скачать');
+const просмотрКода = document.getElementById('просмотрКода');
+const код = document.getElementById('код');
+const показатьКод = document.getElementById('показатьКод');
+const спрятатьКод = document.getElementById('спрятатьКод');
+
+const сохранитьНовыйКласс = document.getElementById('сохранитьНовыйКласс');
+const удалитьКласс = document.getElementById('удалитьКласс');
+
+const общийDIV = document.getElementById('общий');
+const свободнаяОбласть = document.querySelector('html');
+
+
+let блокДляКомпоновки;
+let нумерованныйСписок;
+let ненумерованныйСписок;
+let абзац;
+let изображение;
+let фоновоеИзображение;
+let элементДляРедактирования;
+let родительскийОбъект;
+let таблица;
+let url;
+let кнопка;
+let раскрывающийсяСписок;
+let переключательCheckbox;
+let переключательRadio;
+let блокДляВыравнивания;
+let элементДляОбтеканияТекстом;
+let заголовокДляВставки;
+let вспомогательныйБлокДляКомпоновки;
+let данныеОперации;
+let текстовоеПоле;
+let значениеТипаНаружногоОтступа;
+let значениеТипаВнутреннегоОтступа;
+let список;
+let списокДляРедактирования;
+let раскрывающеесяМеню;
+let элементИнадпись;
+let элементДляПеремещения;
+let массивКлассов;
+let рабочийХолст;
+
+массивКлассов = [];
+массивКлассов.push("big-div");
+массивКлассов.push("litle-div");
+массивКлассов.push("ul");
+массивКлассов.push("ol");
+массивКлассов.push("details");
+массивКлассов.push("details-div");
+массивКлассов.push("details-text");
+массивКлассов.push("figure-top-div");
+массивКлассов.push("figure-top-text");
+массивКлассов.push("figure-top");
+массивКлассов.push("figure-bottom");
+массивКлассов.push("figure-bottom-div");
+массивКлассов.push("figure-bottom-text");
+массивКлассов.push("caption-h");
+массивКлассов.push("paragraph-p");
+массивКлассов.push("image");
+массивКлассов.push("table");
+массивКлассов.push("button");
+массивКлассов.push("input-text");
+массивКлассов.push("textarea");
+массивКлассов.push("select");
+массивКлассов.push("checkbox");
+массивКлассов.push("radio");
+
+
+
+var выборщикЦветовДляШрифта = new CP(document.getElementById('выборЦветаШрифта'));//код выбора цвета для шрифта
+	выборщикЦветовДляШрифта.on("change", function(color) {
+	this.target.value = '#' + color;
+	НазначениеЦветШрифта();
+});
+
+var выборщикЦветовДляШрифтаПоКлассу = new CP(document.getElementById('выборЦветаШрифтаПоКлассу'));//код выбора цвета для шрифта По Классу
+	выборщикЦветовДляШрифтаПоКлассу.on("change", function(color) {
+	this.target.value = '#' + color;
+	ВыбратьЦветДляШрифтаПоКлассу();
+});
+
+var выборщикЦветовДляГраницы = new CP(document.getElementById('цветГраницы'));//код выбора цвета для границы
+	выборщикЦветовДляГраницы.on("change", function(color) {
+	this.target.value = '#' + color;
+	ВыборЦветаГраницы();
+	});
+
+ var выборщикЦветовДляГраницыПоКлассу = new CP(document.getElementById('цветГраницыПоКлассу'));//код выбора цвета для границы по классу
+	выборщикЦветовДляГраницыПоКлассу.on("change", function(color) {
+	this.target.value = '#' + color;
+	ВыборЦветаГраницыПоКлассу();
+	});
+
+var выборщикЦветовДляФона = new CP(document.getElementById('выборЦветаЗаливки'));//код выбора цвета для фона
+	выборщикЦветовДляФона.on("change", function(color) {
+	this.target.value = '#' + color;
+	ВыбратьЦветаЗаливки();
+	});
+
+var выборщикЦветовДляФонаПоКлассу = new CP(document.getElementById('выборЦветаЗаливкиПоКлассу'));//код выбора цвета для фона по классу
+	выборщикЦветовДляФонаПоКлассу.on("change", function(color) {
+	this.target.value = '#' + color;
+	ВыбратьДляФонаПоКлассу();
+	});
+
+ скрытьМеню.addEventListener('click', СкрытьВсеМеню);
+ function СкрытьВсеМеню(){
+	дляМеню.classList.toggle("скрытьЭлементыУправления");
+	дляИнструкции.classList.toggle("скрытьЭлементыУправления");
+	заголовок.classList.toggle("скрытьЭлементыУправления");
+}
+
+
+сохранить.addEventListener('click', сохранитьДанные);
+function сохранитьДанные(){
+	localStorage.html = холст.innerHTML;
+
+	localStorage.classes = JSON.stringify(массивКлассов);//преобразование массива классов в строку для передачи на сохранение
+	localStorage.stylese = JSON.stringify(jss.get());
+}
+
+
+сохранитьНовыйКласс.addEventListener('click', сохранитьКласс);
+function сохранитьКласс(){
+	массивКлассов.push(selectedClass);
+	localStorage.classes = JSON.stringify(массивКлассов);
+}
+
+удалитьКласс.addEventListener('click', УдалитьВыбранныйКласс);
+function УдалитьВыбранныйКласс(){
+	var индексКлассаВмассиве = массивКлассов.indexOf(selectedClass);
+	массивКлассов.splice(индексКлассаВмассиве, 1);
+	редактируемыйКласс.value = '';
+}
+
+
+восстановить.addEventListener('click', восстановитьДанные);
+function восстановитьДанные(){
+	холст.innerHTML = localStorage.html;
+	рабочийХолст = холст.querySelector('.holst');
+	массивКлассов = JSON.parse(localStorage.classes);//обратное преобразование строки, содержащейся в localStorage в массив классов
+	for(var i = 0; i < массивКлассов.length; i++){
+	classesSelect.addOption({value: массивКлассов[i]});
+	}
+	const стили = JSON.parse(localStorage.stylese);
+
+	for (const селектор in стили) {
+		jss.set(селектор, стили[селектор]);
+	}
+}
+
+
+очистить.addEventListener('click', очиститьДанные);
+function очиститьДанные(){
+	холст.innerHTML = '';
+}
+
+очиститьСтили.addEventListener('click', удалитьСтили);
+function удалитьСтили(){
+	jss.remove();
+}
+
+function СохранитьДанныеОперации(){
+   данныеОперации = холст.innerHTML;
+}
+
+отменить.addEventListener('click', ОтменитьПоследнееДействие);
+function ОтменитьПоследнееДействие(){
+	if (данныеОперации == null) {
+		return;
+	}
+   холст.innerHTML = данныеОперации;
+   данныеОперации = null;
+}
+
+addEventListener('keydown', ОтменитьПоследнееДействиеСклавиатуры);
+function ОтменитьПоследнееДействиеСклавиатуры(event) {
+	if (event.keyCode === 90 && event.ctrlKey) {
+	   if (данныеОперации == null) {
+		return;
+	}
+   холст.innerHTML = данныеОперации;
+   данныеОперации = null;
+	}
+}
+
+холст.addEventListener('keydown', СохранитьДанныеПоНажатиюEnter);
+function СохранитьДанныеПоНажатиюEnter(event){
+	if (event.keyCode === 13) {
+		СохранитьДанныеОперации();
+	}
+}
+
+
+addEventListener('keydown', ВозвратКнулевойТочкеЭкрана);
+function ВозвратКнулевойТочкеЭкрана(event) {
+	if(event.ctrlKey && event.keyCode === 37 ){//клавиши Ctrl + стрелка Влево
+	 window.scroll (0, 0);//позиция верхней левой точки изображения в пикселях
+	}
+}
+addEventListener('keydown', ВозвратКполномуЭкрану);
+function ВозвратКполномуЭкрану(event) {
+	if(event.ctrlKey && event.keyCode === 39 ){//клавиши Ctrl + стрелка Вправо
+	 window.scroll (300, 0);//позиция верхней левой точки изображения в пикселях
+	}
+}
+
+
+
+
+
+const classesSelect = $('#classes-select').selectize({
+	labelField: 'value',
+	searchField: 'value',
+	delimiter: ' ',
+	closeAfterSelect: true,
+	options: массивКлассов.map(класс => ({value: класс})),
+	create: input => ({value: input, text: input}),
+	onChange: values => {
+		const selected = холст.querySelector('.selected');
+
+		if (selected) {
+			selected.className = values.join(' ') + ' selected';
+		}
+	},
+	plugins: ['remove_button'],
+})[0].selectize;
+
+document.addEventListener('click', event => {
+	if (event.target.matches('.selectize-input .item')) {
+		selectedClass = event.target.dataset.value;
+		редактируемыйКласс.value = selectedClass;
+	}
+});
+
+
+добавитьХолст.addEventListener('click', ДобавлениеРабочегоХолста);
+function ДобавлениеРабочегоХолста(){
+	СохранитьДанныеОперации();
+	рабочийХолст = document.createElement('div');
+	холст.appendChild(рабочийХолст);
+	рабочийХолст.classList.add("holst");
+	select(рабочийХолст);
+}
+
+добавитьБлокДляКомпоновки.addEventListener('click', ДобавлениеБлокаДляКомпоновки);
+function ДобавлениеБлокаДляКомпоновки(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+	СохранитьДанныеОперации();
+	блокДляКомпоновки = document.createElement('div');
+	рабочийХолст.appendChild(блокДляКомпоновки);
+	блокДляКомпоновки.style.minHeight = минимВысота.value;
+	блокДляКомпоновки.classList.add("big-div");
+	select(блокДляКомпоновки);
+}
+
+добавитьВспомогательныйБлокДляКомпоновки.addEventListener('click', ДобавлениеВспомогательногоБлокаДляКомпоновки);
+function ДобавлениеВспомогательногоБлокаДляКомпоновки(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+СохранитьДанныеОперации();
+ вспомогательныйБлокДляКомпоновки = document.createElement('div');
+ блокДляКомпоновки = document.querySelector('.selected');
+ блокДляКомпоновки.appendChild(вспомогательныйБлокДляКомпоновки);
+ вспомогательныйБлокДляКомпоновки.style.minHeight = минимВысота.value;
+ вспомогательныйБлокДляКомпоновки.style.minWidth = минимВысота.value;
+ вспомогательныйБлокДляКомпоновки.classList.add("litle-div");
+}
+
+
+холст.addEventListener('click', ДобавлениеВспомогательногоБлокаДляКомпоновкиПоКлику);
+function ДобавлениеВспомогательногоБлокаДляКомпоновкиПоКлику(event){
+	if(event.altKey){
+		if(!рабочийХолст){
+		alert('Создайте холст');
+		return;
+		}
+	СохранитьДанныеОперации();
+	вспомогательныйБлокДляКомпоновки = document.createElement('div');
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(вспомогательныйБлокДляКомпоновки);
+	вспомогательныйБлокДляКомпоновки.style.minHeight = минимВысота.value;
+	вспомогательныйБлокДляКомпоновки.style.minWidth = минимВысота.value;
+	вспомогательныйБлокДляКомпоновки.style.position = 'absolute';
+	вспомогательныйБлокДляКомпоновки.style.left = parseInt(event.pageX - 305) + 'px';
+	вспомогательныйБлокДляКомпоновки.style.top = parseInt(event.pageY - 155) + 'px';
+	вспомогательныйБлокДляКомпоновки.classList.add("litle-div");
+	}
+}
+
+
+добавитьМаркированныйСписок.addEventListener('click', ДобавлениеМаркированногоСписка);
+function ДобавлениеМаркированногоСписка(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+СохранитьДанныеОперации();
+	маркированныйСписок = document.createElement('ul');
+	блокДляКомпоновки = document.querySelector('.selected');
+	if(!блокДляКомпоновки){
+			return;
+		}
+	блокДляКомпоновки.appendChild(маркированныйСписок);
+	var li = document.createElement('li');
+	маркированныйСписок.appendChild(li);
+	маркированныйСписок.classList.add("ul");
+	select(маркированныйСписок);
+}
+
+
+добавитьНумерованныйСписок.addEventListener('click', ДобавлениеНумированногоСписка);
+function ДобавлениеНумированногоСписка(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+ СохранитьДанныеОперации();
+	нумерованныйСписок = document.createElement('ol');
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(нумерованныйСписок);
+	var li = document.createElement('li');
+	нумерованныйСписок.appendChild(li);
+	нумерованныйСписок.classList.add("ol");
+	select(нумерованныйСписок);
+}
+
+добавитьРаскрывающеесяМеню.addEventListener('click', ДобавлениеРаскрывающегосяМеню);
+function ДобавлениеРаскрывающегосяМеню(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+ СохранитьДанныеОперации();
+	var текстЗаголовкаМеню = prompt('Введите текст заголовка', '');
+	if (!текстЗаголовкаМеню) {
+		alert('Введите текст заголовка');
+		return;
+	}
+	раскрывающеесяМеню = document.createElement('details');
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(раскрывающеесяМеню);
+	var заголовокМеню = document.createElement('summary');
+	раскрывающеесяМеню.appendChild(заголовокМеню);
+	заголовокМеню.innerHTML = текстЗаголовкаМеню;
+	вспомогательныйБлокДляКомпоновкиРаскрывМеню = document.createElement('div');
+	вспомогательныйБлокДляКомпоновкиРаскрывМеню.classList.add("details-div");
+	заголовокМеню.classList.add("details-text");
+	раскрывающеесяМеню.appendChild(вспомогательныйБлокДляКомпоновкиРаскрывМеню);
+	раскрывающеесяМеню.classList.add("details");
+	select(раскрывающеесяМеню);
+}
+
+ЭлементСнадписьюСверху.addEventListener('click', ДобавлениеЭлементаСнадписьюСверху);
+function ДобавлениеЭлементаСнадписьюСверху(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+	}
+ СохранитьДанныеОперации();
+	элементИнадписьСверху = document.createElement('figure');
+	блокДляКомпоновки = document.querySelector('.selected');
+		if(!блокДляКомпоновки){
+			return;
+		}
+	блокДляКомпоновки.appendChild(элементИнадписьСверху);
+	var надписьКэлеметуСнадписьюСверху = document.createElement('figcaption');
+	элементИнадписьСверху.appendChild(надписьКэлеметуСнадписьюСверху);
+
+	 var текстНадписиСверху = prompt('Введите текст надписи', '');
+		if (!текстНадписиСверху) {
+		alert('Введите текст надписи');
+		return;
+		}
+	надписьКэлеметуСнадписьюСверху.innerHTML = текстНадписиСверху;
+	вспомогательныйБлокДляКомпоновкиНадписьСверху = document.createElement('div');
+	элементИнадписьСверху.appendChild(вспомогательныйБлокДляКомпоновкиНадписьСверху);
+	элементИнадписьСверху.classList.add("figure-top");
+	вспомогательныйБлокДляКомпоновкиНадписьСверху.classList.add("figure-top-div");
+	надписьКэлеметуСнадписьюСверху.classList.add("figure-top-text");
+	select(элементИнадписьСверху);
+}
+
+ЭлементСнадписьюСнизу.addEventListener('click', ДобавлениеЭлементаСнадписьюСнизу);
+function ДобавлениеЭлементаСнадписьюСнизу(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+	}
+ СохранитьДанныеОперации();
+	элементИнадписьСнизу = document.createElement('figure');
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(элементИнадписьСнизу);
+	вспомогательныйБлокДляКомпоновкиНадписьСнизу = document.createElement('div');
+	элементИнадписьСнизу.appendChild(вспомогательныйБлокДляКомпоновкиНадписьСнизу);
+	элементИнадписьСнизу.classList.add("figure-bottom");
+	вспомогательныйБлокДляКомпоновкиНадписьСнизу.classList.add("figure-bottom-div");
+	var надписьКэлеметуСнадписьюСнизу = document.createElement('figcaption');
+	элементИнадписьСнизу.appendChild(надписьКэлеметуСнадписьюСнизу);
+	 var текстНадписиСнизу = prompt('Введите текст надписи', '');
+		if (!текстНадписиСнизу) {
+		alert('Введите текст надписи');
+		return;
+		}
+	надписьКэлеметуСнадписьюСнизу.innerHTML = текстНадписиСнизу;
+	надписьКэлеметуСнадписьюСнизу.classList.add("figure-bottom-text");
+	select(элементИнадписьСнизу);
+}
+
+
+
+
+добавитьЗаголовок.addEventListener('change', ДобавлениеЗаголовка);
+function ДобавлениеЗаголовка(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+ СохранитьДанныеОперации();
+	var тегЗаголовка = добавитьЗаголовок.value;
+	заголовокДляВставки = document.createElement(тегЗаголовка);
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(заголовокДляВставки);
+	заголовокДляВставки.textContent = добавитьЗаголовок.value;
+	заголовокДляВставки.classList.add("caption-h");
+	select(заголовокДляВставки);
+}
+
+ добавитьАбзац.addEventListener('click', ДобавлениеНовогоАбзаца);
+ function ДобавлениеНовогоАбзаца(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+ СохранитьДанныеОперации();
+	абзац = document.createElement('p');
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(абзац);
+	абзац.classList.add("paragraph-p");
+	select(абзац);
+}
+
+ добавитьИзображение.addEventListener('click', ДобавлениеНовогоИзображения);
+ function ДобавлениеНовогоИзображения(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+ СохранитьДанныеОперации();
+	изображение = document.createElement('img');
+	var src = prompt('Введите SRC изображения', '');
+	if (!src) {
+		alert('Введите SRC изображения');
+		return;
+	}
+	изображение.src = src;
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(изображение);
+	изображение.classList.add("image");
+	select(изображение);
+}
+
+
+ созданиеТаблицы.addEventListener('click', СоздатьТаблицу);
+ function СоздатьТаблицу(){
+	if(!рабочийХолст){
+	alert('Создайте холст');
+	return;
+}
+ СохранитьДанныеОперации();
+	блокДляКомпоновки = document.querySelector('.selected');
+	таблица = document.createElement('table');
+	блокДляКомпоновки.appendChild(таблица);
+
+	var количествоСтрокВтаблице = prompt('Введите количество строк в таблице', '5');
+	if (!количествоСтрокВтаблице) {
+		alert('Введите количествоСтрокВтаблице');
+		return;
+	}
+	var количествоСолбцовВтаблице = prompt('Введите количество столбцов в таблице', '5');
+	if (!количествоСолбцовВтаблице) {
+		alert('Введите количество столбцов в таблице');
+		return;
+	}
+
+	for (var i = 0; i < parseInt(количествоСтрокВтаблице); i++) {
+		var stroka = document.createElement('tr');
+		таблица.appendChild(stroka);
+	}
+	var строкаТаблицы = таблица.getElementsByTagName('tr');
+	for (var i = 0; i < строкаТаблицы.length; i++) {
+		for (var k = 0; k < parseInt(количествоСолбцовВтаблице); k++) {
+			var ячейкаТаблицы = document.createElement('td');
+			строкаТаблицы[i].appendChild(ячейкаТаблицы);
+		}
+	}
+	var td = document.getElementsByTagName('td');
+	for (var i = 0; i < td.length; i++) {
+	td[i].style.border = 'dotted 1px';
+	}
+	таблица.classList.add("table");
+	select(таблица);
+}
+
+	 добавитьКнопку.addEventListener('click', ДобавлениеКнопки);
+	 function ДобавлениеКнопки(){
+		if(!рабочийХолст){
+		alert('Создайте холст');
+		return;
+	}
+	 СохранитьДанныеОперации();
+		кнопка = document.createElement('button');
+		блокДляКомпоновки = document.querySelector('.selected');
+		блокДляКомпоновки.appendChild(кнопка);
+		кнопка.classList.add("button");
+		select(кнопка);
+	}
+
+	добавитьТекстовоеПоле.addEventListener('click', ДобавлениеТекстовогоПоля);
+	 function ДобавлениеТекстовогоПоля(){
+		if(!рабочийХолст){
+		alert('Создайте холст');
+		return;
+		}
+	 СохранитьДанныеОперации();
+		текстовоеПоле = document.createElement('input');
+		текстовоеПоле.setAttribute('type','text');
+		блокДляКомпоновки = document.querySelector('.selected');
+		блокДляКомпоновки.appendChild(текстовоеПоле);
+		текстовоеПоле.classList.add("input-text");
+		select(текстовоеПоле);
+	}
+
+	добавитьTextarea.addEventListener('click', ДобавлениеTextarea);
+	 function ДобавлениеTextarea(){
+		if(!рабочийХолст){
+		alert('Создайте холст');
+		return;
+		}
+	 СохранитьДанныеОперации();
+		полеTextarea = document.createElement('textarea');
+		блокДляКомпоновки = document.querySelector('.selected');
+		блокДляКомпоновки.appendChild(полеTextarea);
+		полеTextarea.classList.add("textarea");
+		select(полеTextarea);
+	}
+
+	добавитьSelect.addEventListener('click', ДобавлениеРаскрывающегосяСписка);
+	function ДобавлениеРаскрывающегосяСписка(){
+		if(!рабочийХолст){
+		alert('Создайте холст');
+		return;
+		}
+		СохранитьДанныеОперации();
+	раскрывающийсяСписок = document.createElement('select');
+	блокДляКомпоновки = document.querySelector('.selected');
+	блокДляКомпоновки.appendChild(раскрывающийсяСписок);
+	раскрывающийсяСписок.classList.add("select");
+	select(раскрывающийсяСписок);
+}
+
+	 опцияSelect.addEventListener('change', ДобавлениеОпцииВписок);
+	 function ДобавлениеОпцииВписок(){
+		СохранитьДанныеОперации();
+		var option = document.createElement('option');
+		раскрывающийсяСписок = document.querySelector('.selected');
+		if (!раскрывающийсяСписок) {
+			return;
+		}
+		option.textContent = опцияSelect.value;
+		раскрывающийсяСписок.appendChild(option);
+		опцияSelect.value = '';
+	 }
+
+
+	холст.addEventListener('change', ВыбратьОпциюДляРедактирования);
+		function ВыбратьОпциюДляРедактирования(){
+			редактироватьОпциюSelect.value = event.target.options[event.target.selectedIndex].textContent;
+		}
+	редактироватьОпциюSelect.addEventListener('change', ОтредактироватьОпцию);
+		function ОтредактироватьОпцию(){
+			опцияДляРедактирования = document.querySelector('.selected option:checked');
+			опцияДляРедактирования.textContent = редактироватьОпциюSelect.value;
+		}
+
+
+
+	 добавитьChekcbox.addEventListener('click', ДобавлениеCheckbox);
+	 function ДобавлениеCheckbox(){
+			if(!рабочийХолст){
+			alert('Создайте холст');
+			return;
+			}
+		СохранитьДанныеОперации();
+		переключательCheckbox = document.createElement('input');
+		переключательCheckbox.setAttribute('type','checkbox');
+		блокДляКомпоновки = document.querySelector('.selected');
+		блокДляКомпоновки.appendChild(переключательCheckbox);
+		переключательCheckbox.checked = true;
+		переключательCheckbox.classList.add("checkbox");
+		select(переключательCheckbox);
+	}
+
+	 добавитьRadio.addEventListener('click', ДобавлениеRadio);
+	 function ДобавлениеRadio(){
+		if(!рабочийХолст){
+		alert('Создайте холст');
+		return;
+		}
+		СохранитьДанныеОперации();
+		переключательRadio = document.createElement('input');
+		переключательRadio.setAttribute('type','radio');
+		переключательRadio.setAttribute('name','переключатель');
+		блокДляКомпоновки = document.querySelector('.selected');
+		блокДляКомпоновки.appendChild(переключательRadio);
+		переключательRadio.checked = true;
+		переключательRadio.classList.add("radio");
+		select(переключательRadio);
+	}
+
+
+
+
+	 выборНазванияШрифта.addEventListener('change', НазначениеНазванияШрифта);
+	 function НазначениеНазванияШрифта(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if(!элементДляРедактирования){
+			return;
+		}
+		элементДляРедактирования.style.fontFamily = выборНазванияШрифта.value;
+	}
+	выборРазмераШрифта.addEventListener('change', НазначениеРазмераШрифта);
+	 function НазначениеРазмераШрифта(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if(!элементДляРедактирования){
+			return;
+		}
+		элементДляРедактирования.style.fontSize = выборРазмераШрифта.value;
+	}
+
+	выборТолщиныШрифта.addEventListener('change', НазначениеТолщиныШрифта);
+	 function НазначениеТолщиныШрифта(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if(!элементДляРедактирования){
+			return;
+		}
+		элементДляРедактирования.style.fontWeight = выборТолщиныШрифта.value;
+	}
+
+	выборСтиляШрифта.addEventListener('change', НазначениеСтиляШрифта);
+	 function НазначениеСтиляШрифта(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if(!элементДляРедактирования){
+			return;
+		}
+		элементДляРедактирования.style.fontStyle = выборСтиляШрифта.value;
+	}
+
+	 выборЦветаШрифта.addEventListener('change', НазначениеЦветШрифта);
+	 function НазначениеЦветШрифта(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		выборЦветаШрифта.style.backgroundColor = выборЦветаШрифта.value;
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.color = выборЦветаШрифта.value;
+	}
+	 выравниваниеТекста.addEventListener('change', ВыровнятьТекст);
+	 function ВыровнятьТекст(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if(!элементДляРедактирования){
+			return;
+		}
+		элементДляРедактирования.style.textAlign = выравниваниеТекста.value;
+	}
+
+	 обтеканиеТекстом.addEventListener('change', НазначитьОбтеканиеТекстом);
+	 function НазначитьОбтеканиеТекстом(){
+		СохранитьДанныеОперации();
+		элементДляОбтеканияТекстом = document.querySelector('.selected');
+		if(!элементДляОбтеканияТекстом){
+			return;
+		}
+		элементДляОбтеканияТекстом.setAttribute('type','img');
+		элементДляОбтеканияТекстом.style.float = обтеканиеТекстом.value;
+	}
+
+
+
+
+	выборНазванияШрифтаПоКлассу.addEventListener('change', ВыбратьНазваниеДляШрифтаПоКлассу);
+		function ВыбратьНазваниеДляШрифтаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'font-family': выборНазванияШрифтаПоКлассу.value,
+			});
+		}
+
+	выборРазмераШрифтаПоКлассу.addEventListener('change', ВыбратьРазмерДляШрифтаПоКлассу);
+		function ВыбратьРазмерДляШрифтаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'font-size': выборРазмераШрифтаПоКлассу.value,
+			});
+		}
+
+	выборТолщиныШрифтаПоКлассу.addEventListener('change', ВыбратьТолщинуДляШрифтаПоКлассу);
+		function ВыбратьТолщинуДляШрифтаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'font-weight': выборТолщиныШрифтаПоКлассу.value,
+			});
+		}
+
+	выборСтиляШрифтаПоКлассу.addEventListener('change', ВыбратьСтильДляШрифтаПоКлассу);
+		function ВыбратьСтильДляШрифтаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+		var выбранныйКлассДляСтиляШрифта = selectedClass;
+		var выбранныеЭлементыДляШрифтаПоКлассу = document.getElementsByClassName(выбранныйКлассДляСтиляШрифта);
+			for(var i = 0; i < выбранныеЭлементыДляШрифтаПоКлассу.length; i++){
+				выбранныеЭлементыДляШрифтаПоКлассу[i].style.fontStyle = выборСтиляШрифтаПоКлассу.value;
+			}
+			jss.set(текущийКласс(), {
+				'font-style': выборСтиляШрифтаПоКлассу.value,
+			});
+		}
+
+	 выборЦветаШрифтаПоКлассу.addEventListener('change', ВыбратьЦветДляШрифтаПоКлассу);
+		function ВыбратьЦветДляШрифтаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			выборЦветаШрифтаПоКлассу.style.backgroundColor = выборЦветаШрифтаПоКлассу.value;
+			jss.set(текущийКласс(), {
+				'color': выборЦветаШрифтаПоКлассу.value,
+			});
+		}
+
+	выравниваниеТекстаПоКлассу.addEventListener('change', ВыбратьТипВыравниванияДляШрифтаПоКлассу);
+		function ВыбратьТипВыравниванияДляШрифтаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'text-align': выравниваниеТекстаПоКлассу.value,
+			});
+		}
+
+
+
+
+
+
+
+
+	типНаружногоОтступа.addEventListener('change', ВыборТипаНаружногоОтступа);
+	значениеНаружногоОтступа.addEventListener('change', ВыборТипаНаружногоОтступа);
+	 function ВыборТипаНаружногоОтступа(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		значениеТипаНаружногоОтступа = типНаружногоОтступа.value;
+		элементДляРедактирования.style[значениеТипаНаружногоОтступа] = значениеНаружногоОтступа.value;
+	}
+
+	типВнутреннегоОтступа.addEventListener('change', ВыборТипаВнутреннегоОтступа);
+	значениеВнутреннегоОтступа.addEventListener('change', ВыборТипаВнутреннегоОтступа);
+	 function ВыборТипаВнутреннегоОтступа(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		значениеТипаВнутреннегоОтступа = типВнутреннегоОтступа.value;
+		элементДляРедактирования.style[значениеТипаВнутреннегоОтступа] = значениеВнутреннегоОтступа.value;
+	}
+
+	 координатаX.addEventListener('change', НазначениеКоординатыX);
+	 function НазначениеКоординатыX(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.marginLeft = координатаX.value;
+	}
+	 координатаY.addEventListener('change', НазначениеКоординатыY);
+	 function НазначениеКоординатыY(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.marginTop = координатаY.value;
+	}
+	 ширина.addEventListener('change', НазначениеШирины);
+	 function НазначениеШирины(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.width = ширина.value;
+	}
+	 высота.addEventListener('change', НазначениеВысоты);
+	 function НазначениеВысоты(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.height = высота.value;
+	}
+
+
+
+
+
+
+
+	типНаружногоОтступаПоКлассу.addEventListener('change', ВыборТипаНаружногоОтступаПоКлассу);
+	значениеНаружногоОтступаПоКлассу.addEventListener('change', ВыборТипаНаружногоОтступаПоКлассу);
+		function ВыборТипаНаружногоОтступаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+		var значениеТипаНаружногоОтступаПоклассу = типНаружногоОтступаПоКлассу.value;
+			jss.set(текущийКласс(), {
+				[значениеТипаНаружногоОтступаПоклассу]: значениеНаружногоОтступаПоКлассу.value,
+			});
+		}
+
+	типВнутреннегоОтступаПоКлассу.addEventListener('change', ВыборТипаВнутреннегоОтступаПоКлассу);
+	значениеВнутреннегоОтступаПоКлассу.addEventListener('change', ВыборТипаВнутреннегоОтступаПоКлассу);
+		function ВыборТипаВнутреннегоОтступаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+		var значениеТипаВнутреннегоОтступаПоклассу = типВнутреннегоОтступаПоКлассу.value;
+			jss.set(текущийКласс(), {
+				[значениеТипаВнутреннегоОтступаПоклассу]:значениеВнутреннегоОтступаПоКлассу.value,
+			});
+		}
+
+	ширинаПоКлассу.addEventListener('change', ВыборШириныЭлементаПоКлассу);
+		function ВыборШириныЭлементаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'width': ширинаПоКлассу.value,
+			});
+		}
+
+	высотаПоКлассу.addEventListener('change', ВыборВысотыЭлементаПоКлассу);
+		function ВыборВысотыЭлементаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'height': высотаПоКлассу.value,
+			});
+		}
+
+
+
+
+
+
+	 типГраницы.addEventListener('change', ВыборТипаГраницы);
+	 function ВыборТипаГраницы(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.borderStyle = типГраницы.value;
+		if(типГраницы.value == "none"){
+		толщинаГраницы.value = "";
+		цветГраницы.value = '';
+		цветГраницы.style.backgroundColor = 'rgb(255,255,255)';
+		радиусЗакругления.value = "";
+		}
+	}
+
+	 толщинаГраницы.addEventListener('change', ВыборТолщиныГраницы);
+	function ВыборТолщиныГраницы(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style. borderWidth = толщинаГраницы.value;
+	}
+
+	 цветГраницы.addEventListener('change', ВыборЦветаГраницы);
+	 function ВыборЦветаГраницы(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		цветГраницы.style.backgroundColor = цветГраницы.value;
+		элементДляРедактирования.style.borderColor = цветГраницы.value;
+	}
+
+	радиусЗакругления.addEventListener('change', ВыборРадиусаЗакругления);
+	function ВыборРадиусаЗакругления(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		элементДляРедактирования.style.borderRadius = радиусЗакругления.value;
+	}
+
+
+
+
+
+	типГраницыПоКлассу.addEventListener('change', ВыборТипаГраницыПоКлассу);
+		function ВыборТипаГраницыПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'border-style': типГраницыПоКлассу.value,
+			});
+			if(типГраницыПоКлассу.value == "none"){
+			толщинаГраницыПоКлассу.value = "";
+			цветГраницыПоКлассу.value = '';
+			цветГраницыПоКлассу.style.backgroundColor = 'rgb(255,255,255)';
+			радиусЗакругленияПоКлассу.value = "";
+			}
+		}
+
+	толщинаГраницыПоКлассу.addEventListener('change', ВыборТолщиныГраницыПоКлассу);
+		function ВыборТолщиныГраницыПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'border-width':толщинаГраницыПоКлассу.value,
+			});
+		}
+
+	цветГраницыПоКлассу.addEventListener('change', ВыборЦветаГраницыПоКлассу);
+		function ВыборЦветаГраницыПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+		цветГраницыПоКлассу.style.backgroundColor = цветГраницыПоКлассу.value;
+			jss.set(текущийКласс(), {
+				'border-color': цветГраницыПоКлассу.value,
+			});
+		}
+
+	радиусЗакругленияПоКлассу.addEventListener('change', ВыборРадиусаЗакругленияГраницыПоКлассу);
+		function ВыборРадиусаЗакругленияГраницыПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'border-radius': радиусЗакругленияПоКлассу.value,
+			});
+		}
+
+
+
+
+
+
+	 выборЦветаЗаливки.addEventListener('change', ВыбратьЦветаЗаливки);
+	 function ВыбратьЦветаЗаливки(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		выборЦветаЗаливки.style.backgroundColor = выборЦветаЗаливки.value;
+		if (!элементДляРедактирования) {
+			return;
+		}
+		if(выборЦветаЗаливки.value != ""){
+		элементДляРедактирования.style.backgroundColor = выборЦветаЗаливки.value;
+		}
+	}
+
+		добавитьИзображениеДляФона.addEventListener('click', ДобавлениеФоновогоИзображения);
+		function ДобавлениеФоновогоИзображения(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		url = prompt('Введите url изображения', '');
+		if (url == '') {
+			alert('Введите url изображения');
+			return;
+		}
+		элементДляРедактирования.style.backgroundImage = 'url("' + url + '")';
+	}
+
+
+	 выборРазмераФоновогоИзображения.addEventListener('change', ВыбратьРазмерФоновогоИзображения);
+	 function ВыбратьРазмерФоновогоИзображения(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+		}
+		if(выборРазмераФоновогоИзображения.value != ""){
+		элементДляРедактирования.style.backgroundSize = выборРазмераФоновогоИзображения.value;
+		}
+	}
+
+
+
+
+
+
+	выборЦветаЗаливкиПоКлассу.addEventListener('change', ВыбратьДляФонаПоКлассу);
+	function ВыбратьДляФонаПоКлассу(){
+	СохранитьДанныеОперации();
+	if(!selectedClass){
+		return;
+	}
+		jss.set(текущийКласс(), {
+			'background-color': выборЦветаЗаливкиПоКлассу.value,
+		});
+		выборЦветаЗаливкиПоКлассу.style.backgroundColor = выборЦветаЗаливкиПоКлассу.value;
+	}
+
+
+
+
+
+
+	редактированиеМаркераСписка.addEventListener('change', РедактироватьМаркерСписка);
+		function РедактироватьМаркерСписка(){
+		СохранитьДанныеОперации();
+			списокДляРедактирования = document.querySelector('.selected');
+			if (!списокДляРедактирования) {
+			return;
+			}
+			списокДляРедактирования.style.listStyleType	 = редактированиеМаркераСписка.value;
+		}
+
+редактированиеПоложениеМаркераСписка.addEventListener('change', РедактироватьПоложениеМаркераСписка);
+		function РедактироватьПоложениеМаркераСписка(){
+		 СохранитьДанныеОперации();
+			списокДляРедактирования = document.querySelector('.selected');
+			if (!списокДляРедактирования) {
+			return;
+			}
+			списокДляРедактирования.style.listStylePosition = редактированиеПоложениеМаркераСписка.value;
+		}
+
+
+
+редактированиеМаркераСпискаПоКлассу.addEventListener('change', РедактироватьМаркерСпискаПоКлассу);
+		function РедактироватьМаркерСпискаПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'list-style-type': редактированиеМаркераСпискаПоКлассу.value,
+			});
+		}
+
+
+
+
+
+	 выборПромежуткаМеждуЯчейками.addEventListener('change', ВыбратьПромежутокМеждуЯчейками);
+	 function ВыбратьПромежутокМеждуЯчейками(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+		if (!элементДляРедактирования) {
+			return;
+			}
+		if(выборПромежуткаМеждуЯчейками.value != ""){
+		элементДляРедактирования.style.borderCollapse = выборПромежуткаМеждуЯчейками.value;
+		}
+	}
+
+
+addEventListener('keydown', УдалитьСклавиатуры);
+function УдалитьСклавиатуры(event) {
+	if (event.keyCode === 46 && event.shiftKey) {
+	 var объектДляУдаления = document.querySelector('.selected');
+	 if (объектДляУдаления == холст){
+	  return;
+	 }
+	 объектДляУдаления.remove();
+   }
+}
+
+ изменитьПрозрачность.addEventListener('change', НазначитьНовуюПрозрачность);
+	function НазначитьНовуюПрозрачность(){
+		СохранитьДанныеОперации();
+		 элементДляРедактирования = document.querySelector('.selected');
+		 if (!элементДляРедактирования) {
+			return;
+			}
+		 элементДляРедактирования.style.opacity = Number(изменитьПрозрачность.value);
+	}
+
+
+
+
+ выборНаправленияГлавнойОси.addEventListener('change', ВыбратьНаправлениеГлавнойОси);
+ function ВыбратьНаправлениеГлавнойОси(){
+		СохранитьДанныеОперации();
+	родительскийОбъект = document.querySelector('.selected');
+	if (!родительскийОбъект) {
+			return;
+			}
+	родительскийОбъект.style.display = 'flex';
+	родительскийОбъект.style.flexDirection = выборНаправленияГлавнойОси.value;
+}
+ выборТипаВыравниванияВдольГлавнойОси.addEventListener('change', ВыбратьТипВыравниванияВдольГлавнойОси);
+ function ВыбратьТипВыравниванияВдольГлавнойОси(){
+		СохранитьДанныеОперации();
+	родительскийОбъект = document.querySelector('.selected');
+	if (!родительскийОбъект) {
+			return;
+			}
+	родительскийОбъект.style.display = 'flex';
+	родительскийОбъект.style.justifyContent = выборТипаВыравниванияВдольГлавнойОси.value;
+}
+ выборТипаВыравниванияВдольПоперечнойОси.addEventListener('change', ВыбратьТипВыравниванияВдольПоперечнойОси);
+ function ВыбратьТипВыравниванияВдольПоперечнойОси(){
+		СохранитьДанныеОперации();
+	родительскийОбъект = document.querySelector('.selected');
+	if (!родительскийОбъект) {
+			return;
+			}
+	родительскийОбъект.style.display = 'flex';
+	родительскийОбъект.style.alignItems = выборТипаВыравниванияВдольПоперечнойОси.value;
+}
+ выборМногострочногоРежима.addEventListener('change', ВыбратьМногострочныйРежим);
+ function ВыбратьМногострочныйРежим(){
+		СохранитьДанныеОперации();
+	родительскийОбъект = document.querySelector('.selected');
+	if (!родительскийОбъект) {
+			return;
+			}
+	родительскийОбъект.style.display = 'flex';
+	родительскийОбъект.style.flexWrap = выборМногострочногоРежима.value;
+}
+ выборТипаВыравниванияРядовБлоков.addEventListener('change', ВыбратьТипВыравниванияРядовБлоков);
+ function ВыбратьТипВыравниванияРядовБлоков(){
+		СохранитьДанныеОперации();
+	родительскийОбъект = document.querySelector('.selected');
+	if (!родительскийОбъект) {
+			return;
+			}
+	родительскийОбъект.style.display = 'flex';
+	родительскийОбъект.style.alignContent = выборТипаВыравниванияРядовБлоков.value;
+}
+
+
+
+
+
+
+выборНаправленияГлавнойОсиПоклассу.addEventListener('change', ВыбратьНаправлениеГлавнойОсиПоКлассу);
+		function ВыбратьНаправлениеГлавнойОсиПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'display': 'flex',
+				'flex-direction': выборНаправленияГлавнойОсиПоклассу.value,
+			});
+		}
+
+выборТипаВыравниванияВдольГлавнойОсиПоклассу.addEventListener('change', ВыбратьТипВыравниванияВдольГлавнойОсиПоКлассу);
+		function ВыбратьТипВыравниванияВдольГлавнойОсиПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'display': 'flex',
+				'justify-content': выборТипаВыравниванияВдольГлавнойОсиПоклассу.value,
+			});
+		}
+
+выборТипаВыравниванияВдольПоперечнойОсиПоклассу.addEventListener('change', ВыбратьТипВыравниванияВдольПоперечнойОсиПоКлассу);
+		function ВыбратьТипВыравниванияВдольПоперечнойОсиПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'display': 'flex',
+				'align-items': выборТипаВыравниванияВдольПоперечнойОсиПоклассу.value,
+			});
+		}
+
+выборМногострочногоРежимаПоклассу.addEventListener('change', ВыбратьМногострочныйРежимПоКлассу);
+		function ВыбратьМногострочныйРежимПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'display': 'flex',
+				'flex-wrap': выборМногострочногоРежимаПоклассу.value,
+			});
+		}
+
+выборТипаВыравниванияРядовБлоковПоклассу.addEventListener('change', ВыбратьТипВыравниванияРядовБлоковПоКлассу);
+		function ВыбратьТипВыравниванияРядовБлоковПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'display': 'flex',
+				'align-content': выборТипаВыравниванияРядовБлоковПоклассу.value,
+			});
+		}
+
+
+
+
+
+
+
+
+ выравниваниеОтдельноВзятогоБлокаПоЦентруСверху.addEventListener('click', ВыравнятьБлокПоЦентруСверху);
+ function ВыравнятьБлокПоЦентруСверху(){
+		СохранитьДанныеОперации();
+	блокДляВыравнивания = document.querySelector('.selected');
+			if(!блокДляВыравнивания){
+			return;
+			}
+	блокДляВыравнивания.style.display = 'block';
+	блокДляВыравнивания.style.margin = 'auto';
+	блокДляВыравнивания.style.marginTop = '5px';
+}
+ выравниваниеОтдельноВзятогоБлокаПоЦентруСнизу.addEventListener('click', ВыравнятьБлокПоЦентруСнизу);
+ function ВыравнятьБлокПоЦентруСнизу(){
+		СохранитьДанныеОперации();
+	блокДляВыравнивания = document.querySelector('.selected');
+			if(!блокДляВыравнивания){
+			return;
+			}
+	блокДляВыравнивания.style.display = 'block';
+	блокДляВыравнивания.style.margin = 'auto';
+	блокДляВыравнивания.style.marginBottom = '5px';
+}
+ выравниваниеОтдельноВзятогоБлокаПоЛевомуКраю.addEventListener('click', ВыравнятьБлокПоЛевомуКраю);
+ function ВыравнятьБлокПоЛевомуКраю(){
+		СохранитьДанныеОперации();
+	блокДляВыравнивания = document.querySelector('.selected');
+			if(!блокДляВыравнивания){
+			return;
+			}
+	блокДляВыравнивания.parentNode.style.display = 'flex';
+	блокДляВыравнивания.style.margin = 'auto';
+	блокДляВыравнивания.style.marginLeft = '5px';
+}
+ выравниваниеОтдельноВзятогоБлокаПоПравомуКраю.addEventListener('click', ВыравнятьБлокПоПравомуКраю);
+ function ВыравнятьБлокПоПравомуКраю(){
+		СохранитьДанныеОперации();
+	блокДляВыравнивания = document.querySelector('.selected');
+			if(!блокДляВыравнивания){
+			return;
+			}
+	блокДляВыравнивания.parentNode.style.display = 'flex';
+	блокДляВыравнивания.style.margin = 'auto';
+	блокДляВыравнивания.style.marginRight = '5px';
+}
+ выравниваниеОтдельноВзятогоБлокаВЦентре.addEventListener('click', ВыравнятьБлокПоЦентруБлока);
+ function ВыравнятьБлокПоЦентруБлока(){
+		СохранитьДанныеОперации();
+	блокДляВыравнивания = document.querySelector('.selected');
+			if(!блокДляВыравнивания){
+			return;
+			}
+	блокДляВыравнивания.parentNode.style.display = 'flex';
+	блокДляВыравнивания.style.margin = 'auto';
+}
+
+выборФормыКурсора.addEventListener('change', НазначитьФормуКурсора);
+	function НазначитьФормуКурсора(){
+		СохранитьДанныеОперации();
+		элементДляРедактирования = document.querySelector('.selected');
+			if(!элементДляРедактирования){
+			return;
+			}
+		элементДляРедактирования.style.cursor = выборФормыКурсора.value;
+	}
+
+выборФормыКурсораПоКлассу.addEventListener('change', НазначитьФормуКурсораПоКлассу);
+		function НазначитьФормуКурсораПоКлассу(){
+		СохранитьДанныеОперации();
+			if(!selectedClass){
+			return;
+			}
+			jss.set(текущийКласс(), {
+				'cursor': выборФормыКурсораПоКлассу.value,
+			});
+		}
+
+let selectedClass = '';
+
+function select(element) {
+	if (element.matches('.selected')) {
+		return;
+	}
+
+	for (const selected of document.querySelectorAll('.selected')){
+		selected.classList.remove("selected");
+	}
+
+	classesSelect.setValue(element.className.split(' ').filter(Boolean));
+
+	selectedClass = element.classList.length === 1 ? element.classList[0] : '';
+	редактируемыйКласс.value = selectedClass;
+	element.classList.add("selected");
+	setTimeout(() => element.focus(), 0);
+
+	выборНазванияШрифта.value = element.style.fontFamily;
+	выборРазмераШрифта.value = element.style.fontSize;
+	выборТолщиныШрифта.value = element.style.fontWeight;
+	выборСтиляШрифта.value = element.style.fontStyle;
+	выборЦветаШрифта.value = element.style.color;
+	выборЦветаШрифта.style.backgroundColor = выборЦветаШрифта.value
+	выравниваниеТекста.value = element.style.textAlign;
+	обтеканиеТекстом.value = element.style.float;
+
+	let стилиКласса = jss.get(текущийКласс());
+	выборНазванияШрифтаПоКлассу.value = стилиКласса['font-family'] || '';
+	выборРазмераШрифтаПоКлассу.value = стилиКласса['font-size'] || '';
+	выборТолщиныШрифтаПоКлассу.value = стилиКласса['font-weight'] || '';
+	выборСтиляШрифтаПоКлассу.value = стилиКласса['font-style'] || '';
+	выборЦветаШрифтаПоКлассу.value = стилиКласса['color'] || '';
+	выборЦветаШрифтаПоКлассу.style.backgroundColor = выборЦветаШрифтаПоКлассу.value;
+	выборЦветаШрифтаПоКлассу.style.textAlign = 'center';
+	выравниваниеТекстаПоКлассу.value = стилиКласса['text-align'] || '';
+
+	значениеНаружногоОтступа.value = element.style.margin || element.style.marginLeft || element.style.marginRight || element.style.marginTop
+	 || element.style.marginBottom;
+	значениеВнутреннегоОтступа.value = element.style.padding || element.style.paddingLeft || element.style.paddingRight || element.style.paddingTop
+	 || element.style.paddingBottom;
+	координатаX.value = element.style.marginLeft;
+	координатаY.value = element.style.marginTop;
+	ширина.value = element.style.width;
+	высота.value = element.style.height;
+
+	значениеНаружногоОтступаПоКлассу.value = стилиКласса['margin'] || стилиКласса['margin-left'] || стилиКласса['margin-right']
+	|| стилиКласса['margin-top'] || стилиКласса['margin-bottom'] || '';
+	значениеВнутреннегоОтступаПоКлассу.value = стилиКласса['padding'] || стилиКласса['padding-left'] || стилиКласса['padding-right']
+	|| стилиКласса['padding-top'] || стилиКласса['padding-bottom'] || '';
+	ширинаПоКлассу.value = стилиКласса['width'] || '';
+	высотаПоКлассу.value = стилиКласса['height'] || '';
+	типНаружногоОтступаПоКлассу.value = '';
+	типВнутреннегоОтступаПоКлассу.value = '';
+
+
+	типГраницы.value = element.style.borderStyle;
+	толщинаГраницы.value = element.style.borderWidth;
+	цветГраницы.value = element.style.borderColor;
+	цветГраницы.style.backgroundColor = цветГраницы.value;
+	радиусЗакругления.value = element.style.borderRadius;
+	if(типГраницы.value == "none"){
+		толщинаГраницы.value = "";
+		цветГраницы.value = '';
+		цветГраницы.style.backgroundColor = 'rgb(255,255,255)';
+		радиусЗакругления.value = "";
+	}
+
+
+	типГраницыПоКлассу.value = стилиКласса['border-top-style'] || '';
+	толщинаГраницыПоКлассу.value = стилиКласса['border-top-width'] || '';
+	цветГраницыПоКлассу.value = стилиКласса['border-top-color'] || '';
+	цветГраницыПоКлассу.style.backgroundColor = цветГраницыПоКлассу.value;
+	цветГраницыПоКлассу.style.textAlign = 'center';
+	радиусЗакругленияПоКлассу.value = стилиКласса['border-top-left-radius'] || '';
+	if(типГраницыПоКлассу.value == "none"){
+		толщинаГраницыПоКлассу.value = "";
+		цветГраницыПоКлассу.value = '';
+		цветГраницыПоКлассу.style.backgroundColor = 'rgb(255,255,255)';
+		радиусЗакругленияПоКлассу.value = "";
+	}
+
+
+	выборЦветаЗаливки.value = element.style.backgroundColor;
+	выборЦветаЗаливки.style.backgroundColor = выборЦветаЗаливки.value;
+	выборРазмераФоновогоИзображения.value = element.style.backgroundSize;
+
+	выборЦветаЗаливкиПоКлассу.value = стилиКласса['background-color'] || '';
+	выборЦветаЗаливкиПоКлассу.style.backgroundColor = выборЦветаЗаливкиПоКлассу.value;
+
+	выборПромежуткаМеждуЯчейками.value = element.style.borderCollapse;
+	редактированиеМаркераСписка.value = element.style.listStyleType;
+	редактированиеПоложениеМаркераСписка.value = element.style.listStylePosition;
+	изменитьПрозрачность.value = element.style.opacity;
+
+	выборНаправленияГлавнойОси.value = element.style.flexDirection;
+	выборТипаВыравниванияВдольГлавнойОси.value = element.style.justifyContent;
+	выборТипаВыравниванияВдольПоперечнойОси.value = element.style.alignItems;
+	выборМногострочногоРежима.value = element.style.flexWrap;
+	выборТипаВыравниванияРядовБлоков.value = element.style.alignContent;
+
+	выборНаправленияГлавнойОсиПоклассу.value = стилиКласса['flex-direction'] || '';
+	выборТипаВыравниванияВдольГлавнойОсиПоклассу.value = стилиКласса['justify-content'] || '';
+	выборТипаВыравниванияВдольПоперечнойОсиПоклассу.value = стилиКласса['align-items'] || '';
+	выборМногострочногоРежимаПоклассу.value = стилиКласса['flex-wrap'] || '';
+	выборТипаВыравниванияРядовБлоковПоклассу.value = стилиКласса['align-content'] || '';
+
+	редактированиеМаркераСпискаПоКлассу.value = стилиКласса['list-style-type'];
+	гиперссылка.value = element.parentNode.getAttribute('href');
+}
+
+холст.addEventListener('mousedown', function (event) {
+	select(event.target);
+});
+
+
+
+
+свободнаяОбласть.addEventListener('mousedown', СнятьВыделение);
+общийDIV.addEventListener('mousedown', СнятьВыделение);
+общийБезМеню.addEventListener('mousedown', СнятьВыделение);
+document.body.addEventListener('mousedown', СнятьВыделение);
+function СнятьВыделение(event){
+   if(this == event.target){
+   	for (const selected of document.querySelectorAll('.selected')){
+		selected.classList.remove("selected");
+	}
+	const полеСкрестиком = document.querySelector('.selectize-input .item');
+	if(полеСкрестиком != null){
+	редактируемыйКласс.value = полеСкрестиком.dataset.value;
+	}
+   }
+}
+
+
+let скрытыйЭлемент;
+скрыть.addEventListener('click', СкрытьЭлемент);
+function СкрытьЭлемент(){
+	СохранитьДанныеОперации();
+	скрытыйЭлемент = document.querySelector('.selected');
+	 	if(!скрытыйЭлемент){
+			return;
+		}
+		скрытыйЭлемент.classList.add("скрытый");
+}
+
+показать.addEventListener('click', ПоказатьВсё);
+function ПоказатьВсё(){
+	СохранитьДанныеОперации();
+	скрытыйЭлемент = document.querySelectorAll('.скрытый');
+	for(var i = 0; i < скрытыйЭлемент.length; i++){
+		скрытыйЭлемент[i].classList.remove("скрытый");
+	}
+}
+
+const hoverCheckbox = document.getElementById('добавитьhover');
+const удалитьГиперссылку = document.getElementById('удалитьГиперссылку');
+
+function текущийКласс() {
+	return '.' + selectedClass + (hoverCheckbox.checked ? ':hover' : '');
+}
+
+холст.addEventListener('mousedown', РедактироватьПоМесту);
+const включитьРедактированиеПоМесту = document.getElementById('включитьРедактированиеПоМесту');
+function РедактироватьПоМесту(){
+	if (включитьРедактированиеПоМесту.checked){
+		холст.setAttribute('contenteditable', 'true');//редактирование по месту влючено
+	} else {
+		холст.removeAttribute('contenteditable');
+	}
+}
+
+
+гиперссылка.addEventListener('change', ДобавитьГиперссылку);
+function ДобавитьГиперссылку(){
+	СохранитьДанныеОперации();
+	const selected = document.querySelector('.selected');
+	if(!selected){
+			return;
+		}
+	const ссылка = document.createElement('a');
+	const parent = selected.parentElement;
+	ссылка.setAttribute('href', гиперссылка.value);
+	parent.replaceChild(ссылка, selected);
+	ссылка.appendChild(selected);
+	гиперссылка.value = '';
+}
+
+удалитьГиперссылку.addEventListener('click', УдалитьГиперссылкуСэлемента);
+function УдалитьГиперссылкуСэлемента(){
+	СохранитьДанныеОперации();
+	const ссылка = document.querySelector('.selected').closest('a');
+	if (ссылка) {
+		ссылка.parentNode.replaceChild(document.querySelector('.selected'), ссылка);
+	}
+	гиперссылка.value = '';
+}
+
+let буферОбмена;
+let элемент;
+let блокДляВставки;
+
+вырезать.addEventListener('click', ВырезатьЭлемент);
+function ВырезатьЭлемент(){
+	элемент = document.querySelector('.selected');
+	СохранитьДанныеОперации();
+	if (элемент == холст || элемент == рабочийХолст){
+	  return;
+	 }
+	буферОбмена = элемент;
+	элемент.remove();
+}
+
+копировать.addEventListener('click', КопироватьЭлемент);
+function КопироватьЭлемент(){
+	элемент = document.querySelector('.selected');
+	if (элемент == холст || элемент == рабочийХолст){
+	  return;
+	 }
+	буферОбмена = элемент;
+}
+
+вставить.addEventListener('click', ВставитьЭлемент);
+function ВставитьЭлемент(){
+	блокДляВставки = document.querySelector('.selected');
+	СохранитьДанныеОперации();
+	 var элементДляВставки = буферОбмена.cloneNode(true);
+	 блокДляВставки.appendChild(элементДляВставки);
+}
+
+addEventListener('keydown', ВырезатьСклавиатуры);
+function ВырезатьСклавиатуры(event){
+	if (event.ctrlKey && event.keyCode === 88){
+		элемент = document.querySelector('.selected');
+		СохранитьДанныеОперации();
+		if (элемент == холст || элемент == рабочийХолст){
+		  return;
+	 }
+	буферОбмена = элемент;
+	элемент.remove();
+	}
+}
+
+addEventListener('keydown', КопироватьСклавиатуры);
+function КопироватьСклавиатуры(event){
+	if (event.ctrlKey && event.keyCode === 67){
+		элемент = document.querySelector('.selected');
+		if (элемент == холст || элемент == рабочийХолст){
+		  return;
+		 }
+		буферОбмена = элемент;
+	}
+}
+
+
+function download(filename, text) { //функция для сохранения текста в скачиваемом файле
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+скачать.addEventListener('click', Скачать);
+function Скачать() {
+	const css = Array.from(jss.defaultSheet.rules).map(({cssText}) => cssText).join('\n'); //css-свойства по классам
+
+	download('index.html',
+`<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+${css}
+	</style>
+</head>
+<body>
+${formatXML(холст.innerHTML)}
+</body>
+</html>`
+	);
+}
+
+function formatXML(xml) { //форматирование html-кода
+	var formatted = '';
+	var reg = /(>)(<)(\/*)/g;
+	xml = xml.replace(reg, '$1\r\n$2$3');
+	var pad = 0;
+	let match;
+	jQuery.each(xml.split('\r\n'), function(index, node) {
+		var indent = 0;
+		if (node.match( /.+<\/\w[^>]*>$/ )) {
+			indent = 0;
+		} else if (node.match( /^<\/\w/ )) {
+			if (pad != 0) {
+				pad -= 1;
+			}
+		} else if (match = node.match( /^<(\w[^>]*[^\/])>.*$/ )) {
+			indent = match[1].toLowerCase().startsWith('img') ? 0 : 1;
+		} else {
+			indent = 0;
+		}
+
+		var padding = '';
+		for (var i = 0; i < pad; i++) {
+			padding += '  ';
+		}
+
+		formatted += padding + node + '\r\n';
+		pad += indent;
+	});
+
+	return formatted;
+}
+
+показатьКод.addEventListener('click', ПоказатьКодСтраницы);
+function ПоказатьКодСтраницы() {
+код.style.display = 'block';
+const css = Array.from(jss.defaultSheet.rules).map(({cssText}) => cssText).join('\n');
+код.textContent =
+`<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+ ${css}
+	</style>
+</head>
+<body>
+${formatXML(холст.innerHTML)}
+</body>
+</html>`;
+}
+
+спрятатьКод.addEventListener('click', СкрытьКод);
+function СкрытьКод() {
+код.style.display = 'none';
+код.textContent = '';
+}
+
+восстановитьДанные();//восстановление при запуске
+
+
+</script>
+
+</body>
+
+</html>
