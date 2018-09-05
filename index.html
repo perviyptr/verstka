@@ -1803,14 +1803,17 @@ function УдалитьВыбранныйКласс(){
 function восстановитьДанные(){
 	холст.innerHTML = localStorage.html;
 	рабочийХолст = холст.querySelector('.holst');
-	массивКлассов = JSON.parse(localStorage.classes);//обратное преобразование строки, содержащейся в localStorage в массив классов
-	for(var i = 0; i < массивКлассов.length; i++){
-	classesSelect.addOption({value: массивКлассов[i]});
+	if(localStorage.classes != undefined){
+		массивКлассов = JSON.parse(localStorage.classes);//обратное преобразование строки, содержащейся в localStorage в массив классов
+		for(var i = 0; i < массивКлассов.length; i++){
+			classesSelect.addOption({value: массивКлассов[i]});
+		}
 	}
-	const стили = JSON.parse(localStorage.stylese);
-
-	for (const селектор in стили) {
-		jss.set(селектор, стили[селектор]);
+	if(localStorage.stylese != undefined){
+		const стили = JSON.parse(localStorage.stylese);
+		for (const селектор in стили) {
+			jss.set(селектор, стили[селектор]);
+		}
 	}
 }
 
