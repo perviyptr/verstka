@@ -3339,7 +3339,7 @@ function download(filename, text) { //функция для сохранения
 
 скачать.addEventListener('click', Скачать);
 function Скачать() {
-	const css = Array.from(jss.defaultSheet.rules).map(({cssText}) => cssText).join('\n'); //css-свойства по классам
+	const css = Array.from(jss.defaultSheet.cssRules).map(({cssText}) => cssText).join('\n'); //css-свойства по классам
 
 	download('index.html',
 `<!DOCTYPE html>
@@ -3394,7 +3394,7 @@ function ПоказатьКодСтраницы() {
 код.style.display = 'block';
 let css = '';
 if(jss.defaultSheet != undefined){
-css = Array.from(jss.defaultSheet.rules).map(({cssText}) => cssText).join('\n');
+css = Array.from(jss.defaultSheet.cssRules).map(({cssText}) => cssText).join('\n');
 }
 код.textContent =
 `<!DOCTYPE html>
