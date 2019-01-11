@@ -2310,6 +2310,7 @@ function ДобавлениеЗаголовка(){
 		}
 		СохранитьДанныеОперации();
 	раскрывающийсяСписок = document.createElement('select');
+	раскрывающийсяСписок.setAttribute('contenteditable', 'false');
 	блокДляКомпоновки = document.querySelector('.selected');
 	блокДляКомпоновки.appendChild(раскрывающийсяСписок);
 	раскрывающийсяСписок.classList.add("select");
